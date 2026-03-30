@@ -351,13 +351,16 @@
     white-space: nowrap;
     position: relative;
   }
-  .bar-plan { background: var(--navy); width: 28%; }
-  .bar-create { background: var(--navy-mid); width: 28%; margin-left: 1%; }
+  .bar-plan { background: var(--navy); width: 15%; }
+  .bar-create { background: var(--navy-mid); width: 30%; margin-left: 1%; }
   .bar-internal { background: var(--gold); color: var(--navy); width: 14%; margin-left: 1%; }
-  .bar-decision { background: #B8922F; color: var(--white); width: 7%; margin-left: 1%; }
-  .bar-external { background: var(--orange); width: 20%; margin-left: 1%; }
-  .bar-publish { background: var(--green); width: 14%; margin-left: 1%; }
-  .bar-publish-fast { background: var(--green); width: 14%; margin-left: 1%; }
+  .bar-updates { background: #B8922F; color: var(--white); width: 8%; margin-left: 1%; }
+  .bar-external { background: var(--orange); width: 18%; margin-left: 1%; }
+  .bar-updates-post { background: #B8922F; color: var(--white); width: 8%; margin-left: 1%; }
+  .bar-publish { background: var(--green); width: 10%; margin-left: 1%; }
+  .bar-publish-fast { background: var(--green); width: 16%; margin-left: 1%; }
+  .bar-comply-current { background: var(--red-soft); width: 50%; margin-left: 1%; }
+  .bar-publish-current { background: var(--green); width: 10%; margin-left: 1%; }
 
   .timeline-week-markers {
     display: grid;
@@ -585,7 +588,7 @@
             <span class="flow-tag tag-owner">SuperSymm</span>
           </div>
         </div>
-        <p>Quarterly calendar with consolidated campaigns. Similar demographics and goals grouped together to reduce total content volume for review.</p>
+        <p>Content prioritized and strategy determined for campaign approach — lead generation, seminars, seasonal events, and more. Quarterly calendar with consolidated campaigns grouped by demographics and goals to reduce total content volume for review.</p>
       </div>
     </div>
 
@@ -597,7 +600,7 @@
       </div>
       <div class="flow-card">
         <div class="flow-card-header">
-          <h3>Content Creation</h3>
+          <h3>Monthly Content Creation</h3>
           <div class="flow-meta">
             <span class="flow-tag tag-duration">3–5 Days</span>
             <span class="flow-tag tag-owner">SuperSymm</span>
@@ -615,13 +618,13 @@
       </div>
       <div class="flow-card">
         <div class="flow-card-header">
-          <h3>Internal Review</h3>
+          <h3>Bi-Weekly Internal Reviews</h3>
           <div class="flow-meta">
             <span class="flow-tag tag-duration">48 Hours</span>
             <span class="flow-tag tag-owner">Luxon Brown — Taylor / Chris M</span>
           </div>
         </div>
-        <p>Content submitted to SuperSymm Compliance Hub. Team notified for review with options to Approve, Edit, provide Feedback, or Flag for External Review.</p>
+        <p>Content submitted to <strong>SuperSymm Compliance Hub</strong>. Team notified for review with options to Approve, Edit, provide Feedback, or Flag for External Review.</p>
       </div>
     </div>
 
@@ -643,12 +646,12 @@
 
         <div class="split-paths">
           <div class="path-card path-external">
-            <div class="pct">20–30%</div>
+            <div class="pct">~20–30%</div>
             <h4>→ External Review (Comply)</h4>
             <p>Flagged content submitted for external compliance review. 2–7 day turnaround with feedback loop if revisions needed.</p>
           </div>
           <div class="path-card path-internal">
-            <div class="pct">70–80%</div>
+            <div class="pct">70–100%</div>
             <h4>→ Internal Approval</h4>
             <p>Content approved by internal review and moves directly to publication queue. No external review required.</p>
           </div>
@@ -698,11 +701,23 @@
 <!-- ═══════════ TIMELINE ═══════════ -->
 <section class="section" style="padding-top: 0;">
   <div class="section-label">Timeline</div>
-  <div class="section-title">Two Tracks, Clear Deadlines</div>
-  <p class="section-desc">Most content follows the Fast Track. Only content with specific claims, statistics, or regulatory uncertainty routes through Comply.</p>
+  <div class="section-title">Current vs. Proposed Timelines</div>
+  <p class="section-desc">The current process sends 100% of content through Comply. The proposed workflow creates two faster paths — most content follows the Fast Track, with only flagged content routing through external review.</p>
 
   <div class="timeline-bg">
     <div class="timeline-tracks">
+
+      <div class="timeline-track">
+        <div class="track-label" style="color:var(--red-soft);">Current Process<br><span style="font-weight:400;font-size:12px;color:var(--red-soft);">~4–6 Weeks</span></div>
+        <div class="track-bar-row">
+          <div class="track-bar bar-plan">Plan</div>
+          <div class="track-bar bar-create">Create</div>
+          <div class="track-bar bar-comply-current">Comply Review (100%)</div>
+          <div class="track-bar bar-publish-current">Pub</div>
+        </div>
+      </div>
+
+      <div style="border-top: 2px dashed var(--gray-200); margin: 8px 0;"></div>
 
       <div class="timeline-track">
         <div class="track-label">Fast Track<br><span style="font-weight:400;font-size:12px;color:var(--green);">~2 Weeks</span></div>
@@ -710,7 +725,7 @@
           <div class="track-bar bar-plan">Plan</div>
           <div class="track-bar bar-create">Create</div>
           <div class="track-bar bar-internal">Review</div>
-          <div class="track-bar bar-decision">Gate</div>
+          <div class="track-bar bar-updates">Updates</div>
           <div class="track-bar bar-publish-fast">Publish</div>
         </div>
       </div>
@@ -721,9 +736,9 @@
           <div class="track-bar bar-plan">Plan</div>
           <div class="track-bar bar-create">Create</div>
           <div class="track-bar bar-internal">Review</div>
-          <div class="track-bar bar-decision">Gate</div>
           <div class="track-bar bar-external">Comply</div>
-          <div class="track-bar bar-publish" style="width:10%;">Pub</div>
+          <div class="track-bar bar-updates-post">Updates</div>
+          <div class="track-bar bar-publish" style="width:8%;">Pub</div>
         </div>
       </div>
 
