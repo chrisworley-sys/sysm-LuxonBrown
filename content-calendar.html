@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Calendar — Luxon Brown Financial Services</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-mid: #152C52;
+    --navy-light: #1E3A6B;
+    --gold: #C9A84C;
+    --gold-light: #E4CC7A;
+    --gold-pale: #F5EDD4;
+    --white: #FFFFFF;
+    --gray-50: #F8F9FA;
+    --gray-100: #EEF0F3;
+    --gray-200: #D8DCE2;
+    --gray-400: #8D95A3;
+    --gray-600: #4A5568;
+    --green: #2D8B55;
+    --green-bg: #E8F5EE;
+    --orange: #D4830F;
+    --orange-bg: #FEF3E2;
+    --blue: #2B6CB0;
+    --blue-bg: #EBF3FF;
+    --purple: #6B46C1;
+    --purple-bg: #F3EBF9;
+    --teal: #2C7A7B;
+    --teal-bg: #E6FFFA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--gray-50);
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0A2E1F 0%, #13442E 60%, #1A5C3E 100%);
+    color: var(--white);
+    padding: 72px 48px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 440px; height: 440px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.14) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1.5px solid rgba(201,168,76,0.4);
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p.subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    line-height: 1.65;
+  }
+
+  .hero-kpis {
+    display: flex;
+    gap: 40px;
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+  }
+  .hero-kpi .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-kpi .label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 5px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 48px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: var(--gray-600);
+    max-width: 640px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+  }
+
+  /* ── CHANNEL LEGEND ── */
+  .channel-legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    padding: 20px 28px;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .dot-cold { background: var(--blue); }
+  .dot-nurture { background: var(--purple); }
+  .dot-social { background: var(--green); }
+  .dot-ads { background: var(--orange); }
+  .dot-wp { background: var(--navy); }
+
+  /* ── PERSONA GROUP ── */
+  .persona-group {
+    margin-bottom: 56px;
+  }
+  .persona-group-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .persona-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .group1-icon { background: var(--orange-bg); }
+  .group2-icon { background: var(--blue-bg); }
+  .group3-icon { background: var(--teal-bg); }
+  .persona-group-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .persona-group-header .personas-list {
+    font-size: 14px;
+    color: var(--gray-600);
+    font-weight: 400;
+  }
+
+  /* ── MONTH CARDS GRID ── */
+  .months-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .month-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .month-card:hover {
+    box-shadow: 0 6px 24px rgba(11,29,58,0.07);
+    transform: translateY(-2px);
+  }
+
+  .month-card-head {
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .month-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .month-theme {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .month-card-body {
+    padding: 14px 18px 18px;
+  }
+
+  .channel-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-50);
+  }
+  .channel-row:last-of-type { border-bottom: none; }
+
+  .channel-name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+  }
+  .channel-name .ch-dot {
+    width: 7px; height: 7px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .channel-count {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--gray-50);
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .wp-section {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .wp-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 5px;
+  }
+  .wp-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.45;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .wp-title .wp-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 11px;
+  }
+
+  /* ── FREQUENCY SUMMARY ── */
+  .freq-summary {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 16px;
+    padding: 40px;
+  }
+  .freq-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+  .freq-card {
+    text-align: center;
+    padding: 28px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--gray-100);
+  }
+  .freq-card .freq-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .freq-card .freq-unit {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .freq-card .freq-label {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .freq-card .freq-desc {
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .freq-cold { background: var(--blue-bg); }
+  .freq-cold .freq-num, .freq-cold .freq-label { color: var(--blue); }
+  .freq-nurture { background: var(--purple-bg); }
+  .freq-nurture .freq-num, .freq-nurture .freq-label { color: var(--purple); }
+  .freq-social { background: var(--green-bg); }
+  .freq-social .freq-num, .freq-social .freq-label { color: var(--green); }
+  .freq-ads { background: var(--orange-bg); }
+  .freq-ads .freq-num, .freq-ads .freq-label { color: var(--orange); }
+  .freq-wp { background: #EEF0F3; }
+  .freq-wp .freq-num, .freq-wp .freq-label { color: var(--navy); }
+
+  /* ── TOTALS BAR ── */
+  .totals-bar {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    padding: 48px;
+  }
+  .totals-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .totals-inner h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin-bottom: 28px;
+    color: var(--gold-light);
+  }
+  .totals-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .total-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .total-item .t-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    color: var(--gold);
+  }
+  .total-item .t-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+
+  /* ── CONSIDERATIONS ── */
+  .considerations {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .considerations-header {
+    background: linear-gradient(135deg, #0A2E1F 0%, #13442E 100%);
+    padding: 24px 32px;
+  }
+  .considerations-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--white);
+  }
+  .considerations-header p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+  }
+  .considerations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .consider-card {
+    padding: 28px;
+    border-right: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .consider-card:nth-child(3n) { border-right: none; }
+  .consider-card:nth-last-child(-n+3) { border-bottom: none; }
+  .consider-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+  .consider-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .consider-card p {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+  .consider-stat {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green);
+    background: var(--green-bg);
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+  .consider-stat.warn {
+    color: var(--orange);
+    background: var(--orange-bg);
+  }
+  .consider-stat.info {
+    color: var(--blue);
+    background: var(--blue-bg);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 32px 48px;
+    font-size: 12px;
+    color: var(--gray-400);
+    border-top: 1px solid var(--gray-100);
+  }
+  .footer strong { color: var(--navy); font-weight: 600; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .months-grid { grid-template-columns: repeat(3, 1fr); }
+    .totals-grid { grid-template-columns: repeat(3, 1fr); }
+    .considerations-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 24px; }
+    .section { padding: 48px 24px; }
+    .hero h1 { font-size: 34px; }
+    .months-grid { grid-template-columns: 1fr 1fr; }
+    .freq-grid { grid-template-columns: 1fr 1fr; }
+    .totals-grid { grid-template-columns: 1fr 1fr; }
+    .considerations-grid { grid-template-columns: 1fr 1fr; }
+    .totals-bar { padding: 36px 24px; }
+  }
+  @media (max-width: 500px) {
+    .months-grid { grid-template-columns: 1fr; }
+    .freq-grid { grid-template-columns: 1fr; }
+    .totals-grid { grid-template-columns: 1fr; }
+    .considerations-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Lead Generation Campaign</div>
+    <h1>Content Calendar &<br><span>Campaign Mapping</span></h1>
+    <p class="subtitle">Monthly theme-driven campaigns across cold email, nurture sequences, social media, and paid ads — mapped to persona groups with whitepaper lead magnets.</p>
+    <div class="hero-kpis">
+      <div class="hero-kpi">
+        <div class="num">5 Months</div>
+        <div class="label">March – July 2026</div>
+      </div>
+      <div class="hero-kpi">
+        <div class="num">3 Groups</div>
+        <div class="label">7 Personas Covered</div>
+      </div>
+      <div class="hero-kpi">
+        <div class="num">4 Channels</div>
+        <div class="label">Cold · Nurture · Social · Ads</div>
+      </div>
+      <div class="hero-kpi">
+        <div class="num">15</div>
+        <div class="label">Whitepaper Lead Magnets</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ FREQUENCY OVERVIEW ═══════════ -->
+<section class="section">
+  <div class="section-label">Monthly Cadence</div>
+  <div class="section-title">Channel Frequency Per Persona Group</div>
+  <p class="section-desc">Each persona group receives the following content volume every month, aligned to that month's theme and whitepaper lead magnet.</p>
+
+  <div class="freq-summary">
+    <div class="freq-grid">
+      <div class="freq-card freq-cold">
+        <div class="freq-num">4</div>
+        <div class="freq-unit">Per Month</div>
+        <div class="freq-label">Cold Emails</div>
+        <div class="freq-desc">Plain text, no links early. Reply-based CTA to send whitepaper.</div>
+      </div>
+      <div class="freq-card freq-nurture">
+        <div class="freq-num">5</div>
+        <div class="freq-unit">Per Month</div>
+        <div class="freq-label">Nurture Emails</div>
+        <div class="freq-desc">Warm sequence for engaged leads. Educational → consultation CTA.</div>
+      </div>
+      <div class="freq-card freq-social">
+        <div class="freq-num">4</div>
+        <div class="freq-unit">Per Month</div>
+        <div class="freq-label">Social Posts</div>
+        <div class="freq-desc">Facebook & LinkedIn. Mix of awareness, education, and conversion.</div>
+      </div>
+      <div class="freq-card freq-ads">
+        <div class="freq-num">1</div>
+        <div class="freq-unit">Per Month</div>
+        <div class="freq-label">Facebook Ad</div>
+        <div class="freq-desc">Runs full month. Photography-led creative driving to landing page.</div>
+      </div>
+      <div class="freq-card freq-wp">
+        <div class="freq-num">1</div>
+        <div class="freq-unit">Per Month</div>
+        <div class="freq-label">Whitepaper</div>
+        <div class="freq-desc">Theme-aligned lead magnet. Used across cold emails, nurture, and ads.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CHANNEL LEGEND ═══════════ -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-label">Campaign Map</div>
+  <div class="section-title">Monthly Content by Persona Group</div>
+  <p class="section-desc">Each card shows the monthly theme, channel deliverables, and the whitepaper lead magnet used across all channels for that period.</p>
+
+  <div class="channel-legend">
+    <div class="legend-item"><div class="legend-dot dot-cold"></div>Cold Emails</div>
+    <div class="legend-item"><div class="legend-dot dot-nurture"></div>Nurture Emails</div>
+    <div class="legend-item"><div class="legend-dot dot-social"></div>Social Posts (FB/LI)</div>
+    <div class="legend-item"><div class="legend-dot dot-ads"></div>Facebook Ads</div>
+    <div class="legend-item"><div class="legend-dot dot-wp"></div>Whitepaper Lead Magnet</div>
+  </div>
+
+  <!-- ─── GROUP 1: PETE & PAM ─── -->
+  <div class="persona-group">
+    <div class="persona-group-header">
+      <div class="persona-icon group1-icon">👨‍👩‍👧</div>
+      <div>
+        <h3>Protecting Parents Pete & Pam</h3>
+        <div class="personas-list">Ages 28–42 · $75k–$175k HHI · Term Life Insurance Focus</div>
+      </div>
+    </div>
+
+    <div class="months-grid">
+      <!-- March -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">March</div>
+          <div class="month-theme">Life Insurance</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Employer-Sponsored Life Insurance</div>
+          </div>
+        </div>
+      </div>
+      <!-- April -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">April</div>
+          <div class="month-theme">Life Insurance</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Life Insurance as a Retirement Tool</div>
+          </div>
+        </div>
+      </div>
+      <!-- May -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">May</div>
+          <div class="month-theme">Life Insurance</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Help Your Child Save for Education</div>
+          </div>
+        </div>
+      </div>
+      <!-- June -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">June</div>
+          <div class="month-theme">Life Insurance</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> 12 Tips to Maximize Financial Aid</div>
+          </div>
+        </div>
+      </div>
+      <!-- July -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">July</div>
+          <div class="month-theme">Life Insurance</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Life Insurance as a Retirement Tool</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── GROUP 2: MA & PA MILLER + BOB ─── -->
+  <div class="persona-group">
+    <div class="persona-group-header">
+      <div class="persona-icon group2-icon">👴👵</div>
+      <div>
+        <h3>Ma & Pa Miller + Retiring Bob</h3>
+        <div class="personas-list">Ages 60–80 · $500k–$2M+ Investable · Retirement Income & Succession</div>
+      </div>
+    </div>
+
+    <div class="months-grid">
+      <!-- March -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">March</div>
+          <div class="month-theme">Women & Finance / Taxes</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> 2026 Tax Planning Steps</div>
+          </div>
+        </div>
+      </div>
+      <!-- April -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">April</div>
+          <div class="month-theme">Social Security</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> How to Optimize Social Security</div>
+          </div>
+        </div>
+      </div>
+      <!-- May -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">May</div>
+          <div class="month-theme">Social Security</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Taxation of Social Security Benefits</div>
+          </div>
+        </div>
+      </div>
+      <!-- June -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">June</div>
+          <div class="month-theme">Annuity Awareness Month</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Choosing a Fixed Indexed Annuity</div>
+          </div>
+        </div>
+      </div>
+      <!-- July -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">July</div>
+          <div class="month-theme">Caregiving</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Sandwich Generation IO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── GROUP 3: PAUL + BETTY ─── -->
+  <div class="persona-group">
+    <div class="persona-group-header">
+      <div class="persona-icon group3-icon">💼</div>
+      <div>
+        <h3>Pre-Retiree Paul + Business Owner Betty</h3>
+        <div class="personas-list">Ages 45–65 · $250k–$2M+ Investable · Tax Efficiency & Retirement Planning</div>
+      </div>
+    </div>
+
+    <div class="months-grid">
+      <!-- March -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">March</div>
+          <div class="month-theme">Women & Finance / Taxes</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnets</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Tax Season Readiness Checklist</div>
+            <div class="wp-title" style="margin-top:4px;"><span class="wp-icon">📄</span> Optimize Your Approach to Taxes</div>
+          </div>
+        </div>
+      </div>
+      <!-- April -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">April</div>
+          <div class="month-theme">Social Security</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Are You Ready to File for Social Security</div>
+          </div>
+        </div>
+      </div>
+      <!-- May -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">May</div>
+          <div class="month-theme">College Savings</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Help Your Child Save for Education</div>
+          </div>
+        </div>
+      </div>
+      <!-- June -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">June</div>
+          <div class="month-theme">College Savings</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> 12 Tips to Maximize Financial Aid</div>
+          </div>
+        </div>
+      </div>
+      <!-- July -->
+      <div class="month-card">
+        <div class="month-card-head">
+          <div class="month-name">July</div>
+          <div class="month-theme">Caregiving</div>
+        </div>
+        <div class="month-card-body">
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-cold"></span>Cold Emails</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-nurture"></span>Nurture Emails</span><span class="channel-count">5</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-social"></span>Social Posts</span><span class="channel-count">4</span></div>
+          <div class="channel-row"><span class="channel-name"><span class="ch-dot dot-ads"></span>FB Ad</span><span class="channel-count">1</span></div>
+          <div class="wp-section">
+            <div class="wp-label">Lead Magnet</div>
+            <div class="wp-title"><span class="wp-icon">📄</span> Sandwich Generation IO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════ CONSIDERATIONS ═══════════ -->
+<section class="section" style="padding-bottom: 48px;">
+  <div class="section-label">Ongoing Optimization</div>
+  <div class="section-title">Campaign Considerations</div>
+  <p class="section-desc">Based on early performance data from March, these are the key areas we'll be actively monitoring and optimizing as campaigns scale across all persona groups.</p>
+
+  <div class="considerations">
+    <div class="considerations-header">
+      <h3>What We're Watching & Optimizing</h3>
+      <p>Informed by March 2026 Facebook performance data</p>
+    </div>
+    <div class="considerations-grid">
+
+      <div class="consider-card">
+        <div class="consider-icon" style="background: var(--green-bg);">📈</div>
+        <h4>Performance Monitoring</h4>
+        <p>Track CTR, CPC, engagement rate, and link clicks per campaign. March data shows strong early signals — Pete & Pam at $0.60 CPC and Randy at 5.8% CTR. We'll establish per-persona benchmarks as new campaigns build data.</p>
+        <span class="consider-stat">$0.60 CPC · Below industry avg</span>
+      </div>
+
+      <div class="consider-card">
+        <div class="consider-icon" style="background: var(--orange-bg);">🎨</div>
+        <h4>Introducing New Creatives</h4>
+        <p>Refresh ad creative monthly alongside theme changes. Photography-led visuals for each new whitepaper topic keep campaigns from going stale and align messaging with the current lead magnet offer.</p>
+        <span class="consider-stat warn">Monthly creative refresh per group</span>
+      </div>
+
+      <div class="consider-card">
+        <div class="consider-icon" style="background: var(--blue-bg);">🔬</div>
+        <h4>A/B Testing</h4>
+        <p>Test headlines, imagery, and audience segments within each persona group. Run 2 ad variations per campaign to identify top performers, then consolidate spend behind the winner mid-month.</p>
+        <span class="consider-stat info">2 variations per campaign</span>
+      </div>
+
+      <div class="consider-card">
+        <div class="consider-icon" style="background: var(--gold-pale);">💰</div>
+        <h4>Scaling Ad Spend</h4>
+        <p>March spend was $163.78 across 2 campaigns. With 4 campaigns now active and strong CPC performance, there's room to increase total monthly budget while maintaining efficient cost-per-lead. Ad frequency at 1.6 confirms no audience fatigue.</p>
+        <span class="consider-stat">Frequency 1.6 · Room to scale</span>
+      </div>
+
+      <div class="consider-card">
+        <div class="consider-icon" style="background: var(--purple-bg);">👥</div>
+        <h4>Audience Refinement</h4>
+        <p>March data shows women 65+ as the top-responding demographic across both active campaigns. We'll use this to sharpen targeting, build lookalike audiences, and adjust persona-level ad sets as more data comes in.</p>
+        <span class="consider-stat info">Women 65+ leading engagement</span>
+      </div>
+
+      <div class="consider-card">
+        <div class="consider-icon" style="background: var(--teal-bg);">📱</div>
+        <h4>Organic Social Growth</h4>
+        <p>March organic reach was limited with only 2 posts (20 total views). Scaling to 4 posts per month per group with theme-aligned content will build page credibility and support paid campaigns when prospects visit the profile.</p>
+        <span class="consider-stat warn">Increasing from 2 to 12+ posts/mo</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 5-MONTH TOTALS ═══════════ -->
+<section class="totals-bar">
+  <div class="totals-inner">
+    <h3>5-Month Campaign Totals (All 3 Persona Groups)</h3>
+    <div class="totals-grid">
+      <div class="total-item">
+        <div class="t-num">60</div>
+        <div class="t-label">Cold Emails</div>
+      </div>
+      <div class="total-item">
+        <div class="t-num">75</div>
+        <div class="t-label">Nurture Emails</div>
+      </div>
+      <div class="total-item">
+        <div class="t-num">60</div>
+        <div class="t-label">Social Posts</div>
+      </div>
+      <div class="total-item">
+        <div class="t-num">15</div>
+        <div class="t-label">Facebook Ads</div>
+      </div>
+      <div class="total-item">
+        <div class="t-num">15</div>
+        <div class="t-label">Whitepapers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <strong>Luxon Brown Financial Services</strong> &nbsp;·&nbsp; Lead Generation Content Calendar &nbsp;·&nbsp; March–July 2026 &nbsp;·&nbsp; Prepared by SuperSymm
+</footer>
+
+</body>
+</html>
