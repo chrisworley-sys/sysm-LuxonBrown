@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxon Brown Q1 2026 Quarterly Review</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f3f0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .slide {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        
+        .header {
+            background-color: #1a1333;
+            padding: 40px 48px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .header .subtitle {
+            margin: 8px 0 0;
+            font-size: 15px;
+            color: #c4bdd9;
+        }
+        
+        .header .date {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: #a89ec8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .content {
+            padding: 40px 48px;
+        }
+        
+        .section-title {
+            margin: 0 0 24px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1333;
+            border-bottom: 1px solid #eae9e5;
+            padding-bottom: 10px;
+        }
+        
+        .metric-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 24px 0;
+        }
+        
+        .metric-card {
+            background-color: #f7f6f3;
+            border-radius: 8px;
+            padding: 18px 16px;
+        }
+        
+        .metric-label {
+            margin: 0;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #888780;
+        }
+        
+        .metric-value {
+            margin: 8px 0 0;
+            font-size: 26px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .metric-detail {
+            margin: 4px 0 0;
+            font-size: 10px;
+            color: #888780;
+        }
+        
+        .campaign-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+        
+        .campaign-table th,
+        .campaign-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eae9e5;
+            font-size: 13px;
+        }
+        
+        .campaign-table th {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #888780;
+            font-weight: 600;
+            background-color: #fafaf8;
+        }
+        
+        .campaign-table td {
+            color: #444441;
+        }
+        
+        .campaign-table tr:hover {
+            background-color: #fafaf8;
+        }
+        
+        .campaign-name {
+            font-weight: 600;
+            color: #2c2c2a;
+        }
+        
+        .campaign-meta {
+            margin: 2px 0 0;
+            font-size: 11px;
+            color: #888780;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+        
+        .status-badge.active {
+            background-color: #e0f0e8;
+            color: #0F6E56;
+        }
+        
+        .status-badge.new {
+            background-color: #fef3cd;
+            color: #856404;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 24px 0;
+        }
+        
+        .insight-box {
+            background-color: #f0eefa;
+            border: 1px solid #d8d2f0;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        
+        .insight-box p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #534AB7;
+        }
+        
+        .insight-box strong {
+            color: #3C3489;
+        }
+        
+        .audience-card {
+            border: 1px solid #eae9e5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .audience-header {
+            background-color: #f7f6f3;
+            padding: 12px 16px;
+        }
+        
+        .audience-header p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #2c2c2a;
+        }
+        
+        .audience-header .meta {
+            margin: 2px 0 0;
+            font-size: 10px;
+            color: #888780;
+        }
+        
+        .audience-content {
+            padding: 8px 16px 16px;
+        }
+        
+        .audience-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center;
+            padding: 8px 0 2px;
+        }
+        
+        .audience-label {
+            font-size: 12px;
+            color: #888780;
+        }
+        
+        .audience-value {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .progress-bar-bg {
+            background-color: #eae9e5;
+            border-radius: 2px;
+            height: 4px;
+            margin: 6px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .timeline-phase {
+            margin: 32px 0;
+        }
+        
+        .phase-header {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 20px;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+        
+        .phase-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .phase-months {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .phase-description {
+            margin: 0 0 0 160px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .post-card {
+            border: 1px solid #eae9e5;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+        }
+        
+        .post-date {
+            margin: 0;
+            font-size: 11px;
+            color: #888780;
+        }
+        
+        .post-preview {
+            margin: 8px 0 12px;
+            font-size: 12px;
+            color: #2c2c2a;
+            line-height: 1.5;
+        }
+        
+        .post-stats {
+            font-size: 11px;
+            color: #888780;
+        }
+        
+        .post-stats .stat-val {
+            font-weight: 600;
+            color: #2c2c2a;
+        }
+        
+        .comparison-box {
+            background-color: #f7f6f3;
+            border-radius: 8px;
+            border-left: 3px solid;
+            padding: 16px 18px;
+        }
+        
+        .comparison-box.paid {
+            border-left-color: #378ADD;
+        }
+        
+        .comparison-box.organic {
+            border-left-color: #1D9E75;
+        }
+        
+        .comparison-label {
+            margin: 0;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #888780;
+        }
+        
+        .comparison-metrics {
+            display: flex;
+            gap: 24px;
+            margin-top: 12px;
+        }
+        
+        .comparison-metric p:first-child {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .comparison-metric p:last-child {
+            margin: 2px 0 0;
+            font-size: 10px;
+            color: #888780;
+        }
+        
+        .takeaway-box {
+            border: 1px solid #eae9e5;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+        
+        .takeaway-header {
+            background-color: #f0eefa;
+            padding: 14px 20px;
+        }
+        
+        .takeaway-header p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3C3489;
+        }
+        
+        .takeaway-content {
+            padding: 20px;
+        }
+        
+        .takeaway-item {
+            display: grid;
+            grid-template-columns: 16px 1fr;
+            gap: 12px;
+            padding: 0 0 16px;
+        }
+        
+        .takeaway-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .bullet {
+            padding: 4px 0;
+            font-size: 8px;
+            color: #534AB7;
+        }
+        
+        .takeaway-text {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #2c2c2a;
+        }
+        
+        .divider {
+            grid-column: 1 / -1;
+            border-top: 1px solid #eae9e5;
+            margin: 12px 0;
+        }
+        
+        .content-box {
+            background-color: #f7f6f3;
+            border-radius: 8px;
+            padding: 20px 24px;
+        }
+        
+        .content-box h4 {
+            margin: 0 0 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .content-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .content-box li {
+            margin: 10px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #444441;
+        }
+        
+        .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        .goal-card {
+            background-color: #f7f6f3;
+            border-radius: 8px;
+            padding: 20px;
+            border-top: 4px solid #1a1333;
+        }
+        
+        .goal-card h4 {
+            margin: 0 0 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .goal-card p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .action-bucket {
+            background-color: #f7f6f3;
+            border-left: 4px solid #1a1333;
+            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        
+        .action-bucket h4 {
+            margin: 0 0 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1333;
+        }
+        
+        .action-bucket p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .title-slide {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1333 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 48px;
+        }
+        
+        .title-slide h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            font-weight: 700;
+            margin: 0 0 16px;
+        }
+        
+        .title-slide .subtitle {
+            font-size: 24px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+        
+        .title-slide .quarter {
+            font-size: 42px;
+            color: #B8860B;
+            margin-top: 32px;
+            font-weight: 600;
+        }
+        
+        .title-slide .dates {
+            font-size: 16px;
+            opacity: 0.7;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- TITLE SLIDE -->
+<div class="slide">
+    <div class="title-slide">
+        <h1>Luxon Brown Financial Services</h1>
+        <div class="subtitle">Marketing Performance Review</div>
+        <div class="quarter">Q1 2026</div>
+        <div class="dates">January 1 – March 31, 2026</div>
+    </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="slide">
+    <div class="header">
+        <h1>Executive Summary</h1>
+        <p class="subtitle">Q1 Foundation & Early Performance</p>
+        <p class="date">March 2 – April 12, 2026</p>
+    </div>
+    <div class="content">
+        <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.6; color: #2c2c2a;">Q1 2026 marked the launch of Luxon Brown's comprehensive digital marketing initiative. We established a multi-channel presence across paid advertising, organic social, and email outreach targeting five distinct client personas. While we're in the early stages of audience building and brand awareness, initial performance metrics are encouraging and ahead of financial services benchmarks.</p>
+        
+        <div class="metric-row">
+            <div class="metric-card">
+                <p class="metric-label">Total Ad Spend</p>
+                <p class="metric-value">$832.77</p>
+                <p class="metric-detail">5 ads across 2 campaigns</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">People Reached</p>
+                <p class="metric-value">26,493</p>
+                <p class="metric-detail">1.64 avg frequency</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Impressions</p>
+                <p class="metric-value">43,444</p>
+                <p class="metric-detail">$19.17 CPM</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Est. Link Clicks</p>
+                <p class="metric-value">883</p>
+                <p class="metric-detail">$0.94 avg CPC</p>
+            </div>
+        </div>
+        
+        <div class="insight-box">
+            <p><strong>Key Takeaway:</strong> Average cost per click of $0.94 is performing 23% better than financial services industry benchmark of $1.22. Click-through rates of 2.0–5.8% are significantly above the 1.0–1.5% industry average, indicating strong message-market fit and targeting precision.</p>
+        </div>
+    </div>
+</div>
+
+<!-- PROGRESS TO DATE -->
+<div class="slide">
+    <div class="header">
+        <h1>Progress to Date</h1>
+        <p class="subtitle">Campaign Activity & Performance Overview</p>
+    </div>
+    <div class="content">
+        <p class="section-title">Active Campaigns</p>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Campaign / Persona</th>
+                    <th>Launch Date</th>
+                    <th align="right">Spend</th>
+                    <th align="right">Reach</th>
+                    <th align="right">Clicks</th>
+                    <th align="right">CPC</th>
+                    <th align="right">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p class="campaign-name">Pete & Pam — Life Insurance</p>
+                        <p class="campaign-meta">Conversions · Families with young children</p>
+                    </td>
+                    <td>Mar 1, 2026</td>
+                    <td align="right">$375.31</td>
+                    <td align="right">18,050</td>
+                    <td align="right">427</td>
+                    <td align="right">$0.88</td>
+                    <td align="right"><span class="status-badge active">ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="campaign-name">Betty — Tax Optimization</p>
+                        <p class="campaign-meta">Lead gen · Business owners 45–65</p>
+                    </td>
+                    <td>Mar 27, 2026</td>
+                    <td align="right">$192.11</td>
+                    <td align="right">2,648</td>
+                    <td align="right">177</td>
+                    <td align="right">$1.09</td>
+                    <td align="right"><span class="status-badge active">ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="campaign-name">Randy — Tax Planning</p>
+                        <p class="campaign-meta">Lead gen · Retired professionals 60–80</p>
+                    </td>
+                    <td>Mar 25, 2026</td>
+                    <td align="right">$170.04</td>
+                    <td align="right">3,680</td>
+                    <td align="right">142</td>
+                    <td align="right">$1.20</td>
+                    <td align="right"><span class="status-badge active">ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="campaign-name">Paul — Tax Readiness</p>
+                        <p class="campaign-meta">Lead gen · Pre-retirees 55–65</p>
+                    </td>
+                    <td>Mar 27, 2026</td>
+                    <td align="right">$89.35</td>
+                    <td align="right">1,802</td>
+                    <td align="right">130</td>
+                    <td align="right">$0.68</td>
+                    <td align="right"><span class="status-badge active">ACTIVE</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="campaign-name">Bob — Tax Readiness</p>
+                        <p class="campaign-meta">Lead gen · Retiring business owners 65–80</p>
+                    </td>
+                    <td>Mar 27, 2026</td>
+                    <td align="right">$5.96</td>
+                    <td align="right">313</td>
+                    <td align="right">7</td>
+                    <td align="right">$0.85</td>
+                    <td align="right"><span class="status-badge new">LOW SPEND</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="section-title" style="margin-top: 40px;">Month-over-Month Trend</p>
+        
+        <div class="two-column">
+            <div class="comparison-box paid" style="border-left-color: #888780;">
+                <p class="comparison-label">March (Mar 2–31) · 30 days</p>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <p>$404</p>
+                        <p>spend</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>14,797</p>
+                        <p>reach</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>485</p>
+                        <p>clicks</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>$0.81</p>
+                        <p>CPC</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-box paid">
+                <p class="comparison-label">April (Apr 1–12) · 12 days</p>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <p>$429</p>
+                        <p>spend</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>11,696</p>
+                        <p>reach</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>398</p>
+                        <p>clicks</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>$1.04</p>
+                        <p>CPC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="insight-box">
+            <p>April is already at 106% of March's total spend in less than half the time — reflecting the expanded campaign count and increased investment across all personas.</p>
+        </div>
+        
+        <p class="section-title" style="margin-top: 40px;">Top Audiences by Ad Spend</p>
+        
+        <div class="two-column">
+            <div class="audience-card">
+                <div class="audience-header">
+                    <p>Pete & Pam — Life Insurance</p>
+                    <p class="meta">Conversions campaign</p>
+                </div>
+                <div class="audience-content">
+                    <div class="audience-row">
+                        <p class="audience-label">Women 65+</p>
+                        <p class="audience-value">$180.39</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #7F77DD; width: 100%;"></div>
+                    </div>
+                    
+                    <div class="audience-row">
+                        <p class="audience-label">Men 65+</p>
+                        <p class="audience-value">$46.85</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #AFA9EC; width: 26%;"></div>
+                    </div>
+                    
+                    <div class="audience-row">
+                        <p class="audience-label">Women 55–64</p>
+                        <p class="audience-value">$33.37</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #CECBF6; width: 19%;"></div>
+                    </div>
+                    
+                    <div class="audience-row">
+                        <p class="audience-label">Women 45–54</p>
+                        <p class="audience-value">$21.35</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #CECBF6; width: 12%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="audience-card">
+                <div class="audience-header">
+                    <p>Lead Gen — Tax & Retirement</p>
+                    <p class="meta">All 4 ads combined</p>
+                </div>
+                <div class="audience-content">
+                    <div class="audience-row">
+                        <p class="audience-label">Women 65+</p>
+                        <p class="audience-value">$105.75</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #1D9E75; width: 100%;"></div>
+                    </div>
+                    
+                    <div class="audience-row">
+                        <p class="audience-label">Men 65+</p>
+                        <p class="audience-value">$77.47</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #5DCAA5; width: 73%;"></div>
+                    </div>
+                    
+                    <div class="audience-row">
+                        <p class="audience-label">Women 55–64</p>
+                        <p class="audience-value">$63.20</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #9FE1CB; width: 60%;"></div>
+                    </div>
+                    
+                    <div class="audience-row">
+                        <p class="audience-label">Women 45–54</p>
+                        <p class="audience-value">$37.94</p>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" style="background-color: #E1F5EE; width: 36%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="section-title" style="margin-top: 40px;">Organic Posts <span class="status-badge new">4 posts in March</span></p>
+        
+        <div class="metric-row">
+            <div class="metric-card">
+                <p class="metric-label">Views</p>
+                <p class="metric-value">216</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Reach</p>
+                <p class="metric-value">91</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Reactions</p>
+                <p class="metric-value">11</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Link Clicks</p>
+                <p class="metric-value">2</p>
+            </div>
+        </div>
+        
+        <div class="two-column">
+            <div class="post-card">
+                <p class="post-date">Mar 18 · Photo</p>
+                <p class="post-preview">"Quick question for the parents out there: You've got life insurance through work..."</p>
+                <p class="post-stats"><span class="stat-val">47</span> views · <span class="stat-val">23</span> reach · <span class="stat-val">3</span> reactions</p>
+            </div>
+            
+            <div class="post-card">
+                <p class="post-date">Mar 20 · Photo</p>
+                <p class="post-preview">"Did you know life insurance gets more expensive every year you wait?..."</p>
+                <p class="post-stats"><span class="stat-val">55</span> views · <span class="stat-val">21</span> reach · <span class="stat-val">3</span> reactions</p>
+            </div>
+        </div>
+        
+        <div class="two-column">
+            <div class="post-card">
+                <p class="post-date">Mar 28 · Photo <span class="status-badge active">best performer</span></p>
+                <p class="post-preview">"Real talk: life insurance is one of those things that stays on the to-do list forever..."</p>
+                <p class="post-stats"><span class="stat-val">61</span> views · <span class="stat-val">23</span> reach · <span class="stat-val">3</span> reactions · <span class="stat-val">2</span> link clicks</p>
+            </div>
+            
+            <div class="post-card">
+                <p class="post-date">Mar 29 · Photo</p>
+                <p class="post-preview">"If you have young kids at home and you're relying on your work's life insurance..."</p>
+                <p class="post-stats"><span class="stat-val">53</span> views · <span class="stat-val">24</span> reach · <span class="stat-val">2</span> reactions</p>
+            </div>
+        </div>
+        
+        <div class="insight-box">
+            <p>Organic reach is still limited at this stage, but there's a positive trend — the later posts (Mar 28–29) are outperforming the earlier ones by 12% in views. The Mar 28 post generated the only organic link clicks of the period. <strong>Increasing posting frequency in April will help build momentum.</strong></p>
+        </div>
+        
+        <p class="section-title" style="margin-top: 40px;">Paid vs. Organic</p>
+        
+        <div class="two-column">
+            <div class="comparison-box paid">
+                <p class="comparison-label">Paid ads · 2 campaigns</p>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <p>11,901</p>
+                        <p>impressions</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>262</p>
+                        <p>engagements</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>246</p>
+                        <p>clicks</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-box organic">
+                <p class="comparison-label">Organic · 4 posts · Mar 18–29</p>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <p>216</p>
+                        <p>views</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>11</p>
+                        <p>reactions</p>
+                    </div>
+                    <div class="comparison-metric">
+                        <p>2</p>
+                        <p>clicks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="takeaway-box" style="margin-top: 40px;">
+            <div class="takeaway-header">
+                <p>Key Takeaways</p>
+            </div>
+            <div class="takeaway-content">
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text">Since launching in March, your paid campaigns have reached over <strong>26,000 people</strong> and driven an estimated <strong>883 link clicks</strong> at an average cost of <strong>$0.94 per click</strong> — strong efficiency for financial services advertising.</p>
+                </div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text">The <strong>Pete & Pam life insurance ad</strong> (running since Mar 1) remains the largest campaign with <strong>18,050 people reached</strong> and <strong>427 clicks</strong> at <strong>$0.88 per click</strong>.</p>
+                </div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text">The lead gen campaign has expanded to <strong>four ads</strong> — Betty, Randy, Paul, and Bob — each targeting a different audience. <strong>Betty (tax optimization)</strong> is the top performer at 177 clicks, and <strong>Paul (tax readiness)</strong> is delivering the lowest CPC at <strong>$0.68</strong>.</p>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text"><strong>Spending is scaling up as planned.</strong> April has already exceeded March's total spend ($429 vs. $404) in just 12 days, reflecting the expansion from two ads to five. Reach and click volume are growing alongside it.</p>
+                </div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text">Your <strong>top-responding audience continues to be women age 65+</strong> across both campaigns, followed by men 65+ and women 55–64. This is consistent with the demographic most actively planning for retirement and tax strategy.</p>
+                </div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text">Ad frequency remains healthy at <strong>1.64</strong> across all campaigns — no signs of ad fatigue. There's still room to grow spend without overexposing your audience.</p>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text">On the organic side, <strong>four posts were published in March</strong> — all life insurance content supporting the Pete & Pam campaign. Organic reach is small (91 people across all posts), but trending upward. The Mar 28 post was the strongest performer, generating the only organic link clicks of the period.</p>
+                </div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text">Organic posting builds page credibility when prospects from paid ads visit your profile. <strong>Increasing posting frequency and expanding topics beyond life insurance</strong> in April will strengthen the page and support the new tax and retirement campaigns.</p>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="takeaway-item">
+                    <p class="bullet">●</p>
+                    <p class="takeaway-text"><strong>One thing to watch:</strong> The Bob (retiring business owner) ad is receiving very little spend from Meta's delivery system ($5.96 total). This likely means the audience pool is small or the ad isn't winning in Meta's auction. We'll evaluate whether to adjust targeting or creative on this ad in the coming weeks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CAMPAIGN INSIGHTS -->
+<div class="slide">
+    <div class="header">
+        <h1>Campaign Insights & Recommendations</h1>
+        <p class="subtitle">Life Insurance vs. Tax Planning Performance</p>
+    </div>
+    <div class="content">
+        <p class="section-title">Pete & Pam — Life Insurance (Conversions)</p>
+        
+        <div class="metric-row">
+            <div class="metric-card">
+                <p class="metric-label">Total Spend</p>
+                <p class="metric-value">$375.31</p>
+                <p class="metric-detail">45% of total budget</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">People Reached</p>
+                <p class="metric-value">18,050</p>
+                <p class="metric-detail">68% of total reach</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Link Clicks</p>
+                <p class="metric-value">427</p>
+                <p class="metric-detail">48% of total clicks</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Cost Per Click</p>
+                <p class="metric-value">$0.88</p>
+                <p class="metric-detail">Best CPC efficiency</p>
+            </div>
+        </div>
+        
+        <div class="insight-box">
+            <p><strong>Performance:</strong> Pete & Pam is the workhorse campaign. Running since March 1, it accounts for nearly half of total spend and delivers the most efficient cost per click at $0.88. The 2.0% CTR is solid for financial services, and frequency remains healthy at 1.6 — no fatigue concerns.</p>
+        </div>
+        
+        <div class="insight-box">
+            <p><strong>Recommendation:</strong> This campaign is performing well and should continue at current spend levels. Consider scaling budget by 25-30% in Q2 to maintain reach while frequency is still healthy. The 65+ demographic is highly responsive — maintaining focus here is the right move.</p>
+        </div>
+        
+        <p class="section-title" style="margin-top: 40px;">Tax Planning & Tax Readiness (Lead Gen)</p>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Persona</th>
+                    <th align="right">Spend</th>
+                    <th align="right">Reach</th>
+                    <th align="right">Clicks</th>
+                    <th align="right">CPC</th>
+                    <th align="right">CTR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Betty — Tax Optimization</td>
+                    <td align="right">$192.11</td>
+                    <td align="right">2,648</td>
+                    <td align="right">177</td>
+                    <td align="right">$1.09</td>
+                    <td align="right">—</td>
+                </tr>
+                <tr>
+                    <td>Randy — Tax Planning</td>
+                    <td align="right">$170.04</td>
+                    <td align="right">3,680</td>
+                    <td align="right">142</td>
+                    <td align="right">$1.20</td>
+                    <td align="right">5.8%</td>
+                </tr>
+                <tr>
+                    <td>Paul — Tax Readiness</td>
+                    <td align="right">$89.35</td>
+                    <td align="right">1,802</td>
+                    <td align="right">130</td>
+                    <td align="right">$0.68</td>
+                    <td align="right">—</td>
+                </tr>
+                <tr>
+                    <td>Bob — Tax Readiness</td>
+                    <td align="right">$5.96</td>
+                    <td align="right">313</td>
+                    <td align="right">7</td>
+                    <td align="right">$0.85</td>
+                    <td align="right">—</td>
+                </tr>
+                <tr style="border-top: 2px solid #1a1333;">
+                    <td><strong>Total Lead Gen</strong></td>
+                    <td align="right"><strong>$457.46</strong></td>
+                    <td align="right"><strong>8,443</strong></td>
+                    <td align="right"><strong>456</strong></td>
+                    <td align="right"><strong>$0.95</strong></td>
+                    <td align="right">—</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="insight-box">
+            <p><strong>Performance:</strong> Randy (tax planning) is punching above its weight on engagement with a 5.8% CTR — notably above Pete & Pam's 2.0%. The tradeoff is a higher CPM ($58 vs. $11) due to the lead gen objective. Betty is the top performer by click volume (177 clicks). Paul delivers the lowest CPC at $0.68, making it highly efficient for pre-retiree targeting.</p>
+        </div>
+        
+        <div class="insight-box">
+            <p><strong>Recommendation:</strong> Betty and Paul are performing well and should be maintained or scaled slightly. Randy's engagement rate is exceptional — worth testing increased budget to see if performance holds at higher volume. Bob's low spend ($5.96) indicates a small audience pool or weak auction performance. Consider pausing Bob and reallocating budget to Betty, Paul, or Randy where efficiency is proven.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT PRODUCTION TIMELINE -->
+<div class="slide">
+    <div class="header">
+        <h1>Content Production Timeline</h1>
+        <p class="subtitle">Q1 Content Development & Deployment</p>
+    </div>
+    <div class="content">
+        <div class="two-column">
+            <div class="content-box">
+                <h4>✓ Completed — Q1 2026</h4>
+                <ul>
+                    <li><strong>Persona Development:</strong> 7 personas defined (Pete & Pam, Randy, Paul, Betty, Bob, Nancy, Diana)</li>
+                    <li><strong>Campaign Strategy:</strong> Multi-persona content and campaign system operational</li>
+                    <li><strong>Image Prompt Framework v3:</strong> Detailed visual signatures and format decision guidelines</li>
+                    <li><strong>Paid Ads:</strong> 5 campaigns live across Facebook (Pete & Pam, Randy, Paul, Betty, Bob)</li>
+                    <li><strong>Organic Social:</strong> 4 Facebook posts published (March 18, 20, 28, 29)</li>
+                    <li><strong>White Papers:</strong> 4 lead magnets created (tax planning series)</li>
+                    <li><strong>Landing Pages:</strong> Download pages for each white paper</li>
+                    <li><strong>Cold Email Campaigns:</strong> 4 personas ready for review</li>
+                    <li><strong>Nurture Email Sequences:</strong> 5-email sequences per persona</li>
+                    <li><strong>Team Growth Campaign:</strong> 4-part HTML email and social series introducing Chrissy Flynn, Gavin Stalcup, Linda Crochet</li>
+                </ul>
+            </div>
+            
+            <div class="content-box">
+                <h4>🔄 In Progress — April/May 2026</h4>
+                <ul>
+                    <li><strong>April Content:</strong> All personas in Compliance Hub for review</li>
+                    <li><strong>May Content Calendar:</strong> Themes and topics scheduled</li>
+                    <li><strong>Social Security Optimization:</strong> Campaign content for Paul, Betty, Randy, Bob</li>
+                    <li><strong>Term Life Insurance Expansion:</strong> Pete & Pam campaign evolution</li>
+                    <li><strong>Signal Whitepapers:</strong> Pending Comply submission</li>
+                    <li><strong>Campaign Intelligence Platform:</strong> Self-contained HTML tool with client-specific system prompts and personas</li>
+                    <li><strong>Organic Posting Ramp:</strong> Increase from 2 posts/week to 3-4 posts/week</li>
+                    <li><strong>Email Launch Preparation:</strong> Cold and nurture sequences pending final approval</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PERFORMANCE VS BENCHMARKS -->
+<div class="slide">
+    <div class="header">
+        <h1>Current Performance vs. Industry Benchmarks</h1>
+        <p class="subtitle">Financial Services Advertising Standards</p>
+    </div>
+    <div class="content">
+        <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.6; color: #2c2c2a;">Financial services advertising is highly competitive with elevated costs. Our early performance indicates strong targeting and creative effectiveness relative to industry standards.</p>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th align="right">Luxon Brown</th>
+                    <th align="right">Industry Benchmark</th>
+                    <th>Performance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cost Per Click (CPC)</td>
+                    <td align="right">$0.94</td>
+                    <td align="right">$1.22</td>
+                    <td><span class="status-badge active">23% below benchmark</span></td>
+                </tr>
+                <tr>
+                    <td>Click-Through Rate (CTR)</td>
+                    <td align="right">2.2%</td>
+                    <td align="right">1.0–1.5%</td>
+                    <td><span class="status-badge active">47% above benchmark</span></td>
+                </tr>
+                <tr>
+                    <td>CPM (Cost Per 1K Impressions)</td>
+                    <td align="right">$19.17</td>
+                    <td align="right">$15–$25</td>
+                    <td><span class="status-badge new">Within range</span></td>
+                </tr>
+                <tr>
+                    <td>Ad Frequency</td>
+                    <td align="right">1.64</td>
+                    <td align="right">&lt; 2.5</td>
+                    <td><span class="status-badge active">Healthy range</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="section-title" style="margin-top: 40px;">Realistic ROI Timeline & Lead Generation Expectations</p>
+        
+        <div class="timeline-phase">
+            <div class="phase-header">
+                <p class="phase-name">Foundation</p>
+                <p class="phase-months">Months 1-3 (Current)</p>
+            </div>
+            <p class="phase-description">Launch campaigns, establish brand presence, test messaging, optimize targeting. Focus on awareness and reach. Expect limited lead volume.</p>
+        </div>
+        
+        <div class="timeline-phase">
+            <div class="phase-header">
+                <p class="phase-name">Optimization</p>
+                <p class="phase-months">Months 4-6 (Q2 2026)</p>
+            </div>
+            <p class="phase-description">Refine top-performing campaigns, scale successful ads, expand persona coverage. Begin seeing consistent lead flow. Target: 10-20 qualified leads/month.</p>
+        </div>
+        
+        <div class="timeline-phase">
+            <div class="phase-header">
+                <p class="phase-name">Growth</p>
+                <p class="phase-months">Months 7-9 (Q3 2026)</p>
+            </div>
+            <p class="phase-description">Multi-channel integration (email + ads + organic), retargeting warm audiences, seminar promotion campaigns. Target: 20-40 qualified leads/month.</p>
+        </div>
+        
+        <div class="timeline-phase">
+            <div class="phase-header">
+                <p class="phase-name">Maturity</p>
+                <p class="phase-months">Months 10-12 (Q4 2026)</p>
+            </div>
+            <p class="phase-description">Full funnel optimization, proven conversion paths, predictable ROI. Target: 40-60+ qualified leads/month with improving cost efficiency.</p>
+        </div>
+        
+        <div class="insight-box" style="margin-top: 32px;">
+            <p><strong>Current Stage Assessment:</strong> We're 6-10 weeks into launch with strong foundational metrics. Cost efficiency is excellent (CPC 23% below benchmark), indicating our creative and targeting are resonating. The next 60-90 days will focus on lead capture optimization and conversion tracking implementation to move from awareness to lead generation.</p>
+        </div>
+    </div>
+</div>
+
+<!-- WAYS OF WORKING -->
+<div class="slide">
+    <div class="header">
+        <h1>Ways of Working</h1>
+        <p class="subtitle">Collaboration Cadence & Process Updates</p>
+    </div>
+    <div class="content">
+        <div class="two-column">
+            <div class="content-box">
+                <h4>✓ Established Rhythms</h4>
+                <ul>
+                    <li><strong>Bi-weekly Marketing Reviews:</strong> Campaign performance, content approval, strategic planning</li>
+                    <li><strong>Compliance Hub Reviews:</strong> 48-hour turnaround for content approval</li>
+                    <li><strong>Monthly Performance Reports:</strong> Detailed analytics and recommendations</li>
+                    <li><strong>Quarterly Strategic Planning:</strong> Goal setting, budget allocation, persona expansion</li>
+                </ul>
+            </div>
+            
+            <div class="content-box">
+                <h4>⚙️ Updated Process</h4>
+                <ul>
+                    <li><strong>Sprint Cycle Alignment:</strong> Sync SuperSymm with Luxon Brown sprint planning</li>
+                    <li><strong>Bi-weekly Stand-ups:</strong> Taylor to add SuperSymm to team meetings</li>
+                    <li><strong>Wealthbox Integration:</strong> Lead tracking and CRM synchronization</li>
+                    <li><strong>Comply Workflow:</strong> Internal vs external review — <a href="https://chrisworley-sys.github.io/sysm-LuxonBrown/" target="_blank">View process</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <p class="section-title" style="margin-top: 40px;">Content Review Process</p>
+        
+        <div class="content-box">
+            <h4>New Streamlined Workflow</h4>
+            <p style="margin: 0 0 16px; font-size: 13px; line-height: 1.6; color: #666;">We're implementing a two-tier review system to expedite content approval while maintaining compliance standards. Reference the <a href="https://chrisworley-sys.github.io/sysm-LuxonBrown/" target="_blank">content calendar</a> for visual workflow and detailed process documentation.</p>
+            <ul>
+                <li><strong>Step 1:</strong> Content creation (SuperSymm) — 3-5 days</li>
+                <li><strong>Step 2:</strong> Internal review via Compliance Hub (Taylor/Chris M) — 48 hours</li>
+                <li><strong>Step 3:</strong> Compliance decision (Chris M) — 24 hours</li>
+                <li><strong>Step 4A:</strong> Internal approval only (~70-80% of content) → Publication</li>
+                <li><strong>Step 4B:</strong> External Comply review (~20-30% of content) → 2-7 days → Publication</li>
+            </ul>
+            <p style="margin-top: 15px; color: #0F6E56; font-weight: 600; font-size: 13px;">Total Timeline: 2-3 weeks from creation to publication</p>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT CALENDAR -->
+<div class="slide">
+    <div class="header">
+        <h1>Content Calendar</h1>
+        <p class="subtitle">Q2 2026 White Paper Schedule by Persona</p>
+    </div>
+    <div class="content">
+        <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.6; color: #2c2c2a;">Reference the <a href="https://chrisworley-sys.github.io/sysm-LuxonBrown/" target="_blank">full content calendar</a> for detailed campaign mapping, creative briefs, and compliance status tracking.</p>
+        
+        <table class="campaign-table">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Persona</th>
+                    <th>Primary Theme</th>
+                    <th>White Paper / Lead Magnet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4"><strong>May</strong></td>
+                    <td>Paul</td>
+                    <td>Social Security Optimization</td>
+                    <td>Social Security Timing Guide</td>
+                </tr>
+                <tr>
+                    <td>Betty</td>
+                    <td>Tax Optimization for Business Owners</td>
+                    <td>Business Tax Strategy Checklist</td>
+                </tr>
+                <tr>
+                    <td>Randy</td>
+                    <td>Market Volatility Protection</td>
+                    <td>Retirement Income Security Guide</td>
+                </tr>
+                <tr>
+                    <td>Pete & Pam</td>
+                    <td>Term Life Insurance Expansion</td>
+                    <td>Family Protection Planning Guide</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><strong>June</strong></td>
+                    <td>Paul</td>
+                    <td>Retirement Income Planning</td>
+                    <td>Retirement Readiness Checklist</td>
+                </tr>
+                <tr>
+                    <td>Betty</td>
+                    <td>Business Succession Planning</td>
+                    <td>Exit Strategy Framework</td>
+                </tr>
+                <tr>
+                    <td>Bob</td>
+                    <td>Retiring Business Owner Transition</td>
+                    <td>Business Owner Retirement Guide</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><strong>July</strong></td>
+                    <td>Randy</td>
+                    <td>Estate Planning Basics</td>
+                    <td>Legacy Planning Starter Guide</td>
+                </tr>
+                <tr>
+                    <td>Paul</td>
+                    <td>Healthcare Planning in Retirement</td>
+                    <td>Medicare & Long-Term Care Guide</td>
+                </tr>
+                <tr>
+                    <td>Pete & Pam</td>
+                    <td>College Funding Strategies</td>
+                    <td>Education Savings Blueprint</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="section-title" style="margin-top: 40px;">Organic Post Performance Insights</p>
+        
+        <div class="metric-row">
+            <div class="metric-card">
+                <p class="metric-label">Best Post Type</p>
+                <p class="metric-value">Photo</p>
+                <p class="metric-detail">All top performers</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Best Timing</p>
+                <p class="metric-value">Mar 28</p>
+                <p class="metric-detail">61 views, 2 link clicks</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Avg Views</p>
+                <p class="metric-value">54</p>
+                <p class="metric-detail">12% growth trend</p>
+            </div>
+            <div class="metric-card">
+                <p class="metric-label">Engagement Rate</p>
+                <p class="metric-value">5.1%</p>
+                <p class="metric-detail">Reactions / reach</p>
+            </div>
+        </div>
+        
+        <div class="insight-box">
+            <p><strong>What's Working:</strong> Later posts (Mar 28-29) outperformed earlier posts by 12% in views, indicating momentum is building. Photo posts with conversational, relatable tone generate the most engagement. Posts that lead with a question or "real talk" framing drive higher interaction.</p>
+        </div>
+        
+        <div class="insight-box">
+            <p><strong>Moving Forward:</strong> Increase posting frequency to 3-4 posts/week to capitalize on upward trend. Expand topics beyond life insurance to support tax and retirement campaigns. Test video content and carousel posts to diversify format mix. Continue conversational, non-salesy tone that's resonating with audience.</p>
+        </div>
+    </div>
+</div>
+
+<!-- COMPLIANCE DASHBOARD -->
+<div class="slide">
+    <div class="header">
+        <h1>Compliance Dashboard Overview</h1>
+        <p class="subtitle">SuperSymm Compliance Hub Features</p>
+    </div>
+    <div class="content">
+        <div class="goal-grid">
+            <div class="goal-card">
+                <h4>Centralized Submission</h4>
+                <p>All marketing content (emails, ads, social posts) submitted in one platform for streamlined review process.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Approval Workflows</h4>
+                <p>Internal reviewers (Taylor/Chris M) can approve, edit, provide feedback, or flag content for external Comply review.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Notification System</h4>
+                <p>Automated notifications when content is ready for review, ensuring 48-hour turnaround targets are met.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Version Control</h4>
+                <p>Track content revisions, approval history, and compliance notes for audit trail and reporting.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Flagging Criteria</h4>
+                <p>Clear guidance on when content requires external Comply submission (numbers, statistics, claims requiring verification).</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Analytics Dashboard</h4>
+                <p>Review turnaround times, approval rates, and content volume tracking for process optimization.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FUTURE EVENTS & ACTIVITIES -->
+<div class="slide">
+    <div class="header">
+        <h1>Future Events & Activities</h1>
+        <p class="subtitle">H2 2026 Goals & Strategic Initiatives</p>
+    </div>
+    <div class="content">
+        <div class="goal-grid">
+            <div class="goal-card">
+                <h4>Lead Volume Target</h4>
+                <p>Achieve 40-60 qualified leads per month by Q4 2026 through optimized multi-channel campaigns.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Optimize Personas</h4>
+                <p>Refine targeting and creative for existing personas based on Q1-Q2 performance data. Scale top performers, pause or adjust underperformers.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Seminars & Event Planning</h4>
+                <p>Develop seminar follow-up drip campaigns for past attendees (critical hand-raisers) and promotional campaigns for new seminars in H2.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Cost Efficiency</h4>
+                <p>Maintain cost per lead below $150 across all channels while scaling volume 3-4x from Q1.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Conversion Optimization</h4>
+                <p>Implement conversion tracking, A/B testing framework, and landing page optimization for 8-12% lead→consultation rate.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Content Production</h4>
+                <p>Increase organic posting frequency to 3-4 posts/week to build page authority and support paid campaigns.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Multi-Channel Integration</h4>
+                <p>Launch LinkedIn ads for Betty persona, integrate email nurture with paid retargeting for cohesive funnel.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Platform Development</h4>
+                <p>Launch Retirement Roadmap Planner (Signal integration), role-level access, and performance calculator features.</p>
+            </div>
+            
+            <div class="goal-card">
+                <h4>Marketing Initiatives</h4>
+                <p>Explore podcast launch, webinar series, AI video messaging, and blog content for SEO and nurture sequences.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ENGAGEMENT & PATH FORWARD -->
+<div class="slide">
+    <div class="header">
+        <h1>Current Engagement & Path Forward</h1>
+        <p class="subtitle">Partnership Model & Critical Success Factors</p>
+    </div>
+    <div class="content">
+        <div class="two-column">
+            <div class="content-box">
+                <h4>Comprehensive Digital Marketing Partner</h4>
+                <ul>
+                    <li>Full-funnel strategy and execution</li>
+                    <li>Multi-channel campaign management</li>
+                    <li>Content creation and compliance management</li>
+                    <li>Brand building and awareness focus</li>
+                    <li>Long-term relationship and strategic advisory</li>
+                    <li>Platform development and technology integration</li>
+                </ul>
+            </div>
+            
+            <div class="content-box">
+                <h4>Lead Generation Focused</h4>
+                <ul>
+                    <li>Performance-based lead delivery</li>
+                    <li>Conversion optimization priority</li>
+                    <li>Paid media budget efficiency</li>
+                    <li>Short-term ROI focus</li>
+                    <li>Consultation booking rates as primary KPI</li>
+                    <li>Scalable lead volume with predictable costs</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="insight-box" style="margin-top: 24px;">
+            <p><strong>Recommendation:</strong> The most effective approach combines both models — comprehensive marketing builds the brand foundation and audience trust required for sustainable lead generation. Q1 focused on awareness and reach; Q2-Q4 will layer in conversion optimization while maintaining brand-building momentum.</p>
+        </div>
+        
+        <p class="section-title" style="margin-top: 40px;">Critical Success Factors</p>
+        
+        <div class="content-box">
+            <h4>Required for Continued Progress</h4>
+            <ul>
+                <li><strong>Timely Feedback & Review:</strong> 48-hour compliance review turnaround essential to maintain content calendar momentum</li>
+                <li><strong>Wealthbox Integration:</strong> Lead tracking and attribution requires CRM connection and access provisioning</li>
+                <li><strong>Seminar Lead Follow-Up:</strong> Historical seminar attendee list critical for warm lead nurturing campaigns</li>
+                <li><strong>Regular Strategic Alignment:</strong> Bi-weekly check-ins prevent drift and ensure campaigns align with business priorities</li>
+                <li><strong>Budget Flexibility:</strong> Top-performing campaigns should be scaled when data warrants increased investment</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- NEXT STEPS -->
+<div class="slide">
+    <div class="header">
+        <h1>Next Steps</h1>
+        <p class="subtitle">Action Items & Priorities</p>
+    </div>
+    <div class="content">
+        <div class="action-bucket">
+            <h4>April/May Content</h4>
+            <p>Taylor: Review April content in Compliance Hub (48-hour target). SuperSymm: Submit approved content and Signal whitepapers to Comply. All: Launch all approved marketing streams. Optimize based on early performance data.</p>
+        </div>
+        
+        <div class="action-bucket">
+            <h4>Marketing Reviews</h4>
+            <p>Continue bi-weekly marketing reviews for campaign performance, content approval, and strategic planning. Transition to quarterly comprehensive reviews starting Q2. Maintain monthly performance reporting cadence.</p>
+        </div>
+        
+        <div class="action-bucket">
+            <h4>Lead Follow-Up</h4>
+            <p>Establish seminar drip campaign strategy and follow-up sequences for past attendees (critical hand-raisers). Integrate Wealthbox for lead tracking and CRM synchronization. Set up lead routing and consultation booking workflows.</p>
+        </div>
+        
+        <div class="action-bucket">
+            <h4>Optimize Alignment</h4>
+            <p>Taylor: Add SuperSymm to bi-weekly sprint planning/stand-up meetings. Taylor: Provide Wealthbox login credentials for integration. Taylor: Verify client vs prospect classification in Wealthbox. Chad/Ciprian: Sync on systems integration. All: Ensure timely feedback loops and bi-weekly reporting rhythm. Maintain content engagement through regular reviews and optimization.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CLOSING SLIDE -->
+<div class="slide">
+    <div class="title-slide">
+        <h1 style="font-size: 42px;">Q1 Foundation Complete</h1>
+        <div class="subtitle" style="font-size: 20px; margin-top: 20px;">Strong early performance, efficient cost structure, and comprehensive persona ecosystem established.</div>
+        <div class="subtitle" style="font-size: 16px; margin-top: 24px; opacity: 0.8;">Q2 Focus: Lead generation optimization, conversion tracking, and multi-channel integration.</div>
+    </div>
+</div>
+
+</body>
+</html>
