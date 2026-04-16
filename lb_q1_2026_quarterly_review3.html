@@ -280,6 +280,125 @@
   .bench-pill.warn .bp-status { color: var(--orange); }
   .bench-pill.info .bp-status { color: var(--blue); }
 
+  /* ── FIRST LEADS BLOCK (highlighted subsection in exec summary) ── */
+  .leads-block {
+    background: linear-gradient(135deg, #FBF7E8 0%, #F5EDD4 100%);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .leads-block::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .leads-block-head {
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .leads-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8B7732;
+    margin-bottom: 6px;
+  }
+  .leads-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .leads-sub {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  .leads-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .lead-card {
+    background: var(--white);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+  .lead-card.primary {
+    border-top: 4px solid var(--gold);
+  }
+  .lead-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 10px;
+  }
+  .lead-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .lead-detail {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+  .leads-bench {
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+  .leads-bench-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .leads-bench-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .leads-bench-desc {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+  .leads-bench-desc strong { color: var(--navy); font-weight: 700; }
+
   /* ── CAMPAIGN BLOCK ── */
   .campaign-block {
     background: var(--white);
@@ -1176,6 +1295,56 @@
     line-height: 1.6;
   }
 
+  /* ── 2026 GOALS & INITIATIVES ── */
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .goal-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 22px 24px 24px;
+    border-top: 4px solid var(--gray-300);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .goal-card:hover {
+    box-shadow: 0 6px 24px rgba(11,29,58,0.07);
+    transform: translateY(-2px);
+  }
+  .goal-card.growth { border-top-color: var(--gold); }
+  .goal-card.infra { border-top-color: var(--blue); }
+  .goal-card.content { border-top-color: var(--green); }
+
+  .goal-pillar {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+  }
+  .goal-card.growth .goal-pillar { color: #8B7732; }
+  .goal-card.infra .goal-pillar { color: var(--blue); }
+  .goal-card.content .goal-pillar { color: var(--green); }
+
+  .goal-card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 19px;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--gray-200);
+  }
+  .goal-card p {
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+  .goal-card p strong { color: var(--navy); font-weight: 700; }
+
   /* ── TOTALS BAR (closing) ── */
   .totals-bar {
     background: linear-gradient(135deg, #0A2E1F 0%, #13442E 60%, #1A5C3E 100%);
@@ -1256,6 +1425,8 @@
     .ad-grid, .post-grid, .audience-grid, .comparison-grid, .two-col, .action-grid { grid-template-columns: 1fr; }
     .workflow-grid { grid-template-columns: 1fr; }
     .production-grid { grid-template-columns: 1fr; }
+    .goals-grid { grid-template-columns: repeat(2, 1fr); }
+    .leads-grid { grid-template-columns: 1fr; }
     .conversion-stages { grid-template-columns: 1fr; gap: 12px; }
     .conv-stage-arrow { transform: rotate(90deg); padding: 4px 0; }
     .timeline-row { grid-template-columns: 1fr; gap: 8px; }
@@ -1273,6 +1444,10 @@
     .ad-item-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
     .content-stripe { padding: 32px 24px; }
     .cs-grid { grid-template-columns: 1fr 1fr; }
+    .goals-grid { grid-template-columns: 1fr; }
+    .leads-block { padding: 24px 22px; }
+    .leads-headline { font-size: 22px; }
+    .lead-num { font-size: 32px; }
     .workflow-illustration { padding: 18px 20px; }
   }
 </style>
@@ -1304,13 +1479,13 @@
   <div class="content-stripe-inner">
     <div class="cs-header">
       <div class="cs-label">Q1 Content Totals</div>
-      <div class="cs-title">5-Month Campaign Production · All 5 Persona Groups</div>
+      <div class="cs-title">Campaign Production to Date · All 5 Persona Groups</div>
     </div>
     <div class="cs-grid">
       <div class="cs-item"><div class="cs-num">5</div><div class="cs-name">Active Campaigns</div></div>
-      <div class="cs-item"><div class="cs-num">60</div><div class="cs-name">Social Posts</div></div>
-      <div class="cs-item"><div class="cs-num">15</div><div class="cs-name">Facebook Ads</div></div>
-      <div class="cs-item"><div class="cs-num">15</div><div class="cs-name">Whitepapers</div></div>
+      <div class="cs-item"><div class="cs-num">4</div><div class="cs-name">Social Posts</div></div>
+      <div class="cs-item"><div class="cs-num">5</div><div class="cs-name">Whitepapers</div></div>
+      <div class="cs-item"><div class="cs-num">5</div><div class="cs-name">Facebook Ads</div></div>
     </div>
   </div>
 </section>
@@ -1346,8 +1521,43 @@
     </div>
   </div>
 
+  <!-- First Leads subsection -->
+  <div class="leads-block">
+    <div class="leads-block-head">
+      <div class="leads-label">First Leads</div>
+      <div class="leads-headline">From reach to identified leads.</div>
+      <div class="leads-sub">The top of the funnel is now producing identified prospects. Early signals from a small sample, but directionally encouraging.</div>
+    </div>
+
+    <div class="leads-grid">
+      <div class="lead-card primary">
+        <div class="lead-label">Total leads acquired</div>
+        <div class="lead-num">4</div>
+        <div class="lead-detail">Captured from $832.77 in paid spend</div>
+      </div>
+      <div class="lead-card primary">
+        <div class="lead-label">Cost per lead</div>
+        <div class="lead-num">$208.19</div>
+        <div class="lead-detail">Total spend ÷ leads acquired</div>
+      </div>
+      <div class="lead-card primary">
+        <div class="lead-label">Click-to-lead rate</div>
+        <div class="lead-num">0.45%</div>
+        <div class="lead-detail">4 leads from 883 estimated link clicks</div>
+      </div>
+    </div>
+
+    <div class="leads-bench">
+      <div class="leads-bench-icon">✓</div>
+      <div class="leads-bench-content">
+        <div class="leads-bench-title">CPL is in range for financial services on Day 1.</div>
+        <div class="leads-bench-desc">Financial advisor paid-social CPL benchmarks typically run <strong>$150–$400</strong>. At <strong>$208 per lead</strong>, Luxon Brown is landing in the lower-middle of that range — strong performance for a campaign portfolio that's only six weeks old, before any landing-page optimization or audience refinement.</div>
+      </div>
+    </div>
+  </div>
+
   <div class="insight">
-    <p><strong>The headline:</strong> Cost per click is 23% better than the financial services industry benchmark, and click-through rates are nearly double the industry average. This indicates strong message-market fit and targeting precision — the foundation is in place to scale spend confidently in Q2.</p>
+    <p><strong>The headline:</strong> Cost per click is 23% better than the financial services industry benchmark, click-through rates are nearly double the industry average, and <strong>the funnel is converting</strong> — the first four leads have arrived at a CPL squarely in the financial services benchmark range. Strong message-market fit, efficient targeting, and a working acquisition path. The foundation is in place to scale spend confidently in Q2.</p>
   </div>
 </section>
 
@@ -2015,8 +2225,66 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════
-     KEY TAKEAWAYS
+     2026 GOALS & INITIATIVES
      ═══════════════════════════════════════════════════════════════ -->
+<section class="section tight">
+  <div class="section-label">Looking Ahead</div>
+  <h2 class="section-title">2026 goals and initiatives.</h2>
+  <p class="section-desc">Where we're focusing investment, expansion, and infrastructure across the rest of the year. Three pillars: growth and acquisition, conversion and infrastructure, content and channel expansion.</p>
+
+  <div class="goals-grid">
+    <!-- Growth & acquisition -->
+    <div class="goal-card growth">
+      <div class="goal-pillar">Growth · Acquisition</div>
+      <h4>Lead Volume Target</h4>
+      <p>Achieve <strong>40–60 qualified leads per month</strong> by Q4 2026 through optimized multi-channel campaigns and proven persona targeting.</p>
+    </div>
+    <div class="goal-card growth">
+      <div class="goal-pillar">Growth · Acquisition</div>
+      <h4>LinkedIn &amp; Google Ads</h4>
+      <p>Expand beyond Facebook into <strong>LinkedIn for Betty</strong> (business owners) and <strong>Google Search</strong> for high-intent retirement and tax planning queries across all personas.</p>
+    </div>
+    <div class="goal-card growth">
+      <div class="goal-pillar">Growth · Acquisition</div>
+      <h4>Marketing Initiatives</h4>
+      <p>Explore <strong>podcast launch</strong>, webinar series, AI video messaging, and blog content to build authority and feed nurture sequences.</p>
+    </div>
+
+    <!-- Conversion & infrastructure -->
+    <div class="goal-card infra">
+      <div class="goal-pillar">Conversion · Infrastructure</div>
+      <h4>Conversion Optimization</h4>
+      <p>Implement <strong>conversion tracking</strong>, A/B testing framework, and landing page optimization targeting an <strong>8–12% lead-to-consultation rate</strong>.</p>
+    </div>
+    <div class="goal-card infra">
+      <div class="goal-pillar">Conversion · Infrastructure</div>
+      <h4>Website &amp; SEO Updates</h4>
+      <p>Refresh the <strong>luxonbrown.com site architecture</strong>, persona landing experiences, and on-page SEO to capture organic search demand for tax planning, retirement, and life insurance keywords.</p>
+    </div>
+    <div class="goal-card infra">
+      <div class="goal-pillar">Conversion · Infrastructure</div>
+      <h4>Platform Development</h4>
+      <p>Launch <strong>Retirement Roadmap Planner</strong> (Signal integration), role-level access controls, and the performance calculator features.</p>
+    </div>
+
+    <!-- Content & channel expansion -->
+    <div class="goal-card content">
+      <div class="goal-pillar">Content · Channels</div>
+      <h4>Content Production</h4>
+      <p>Increase organic posting frequency to <strong>3–4 posts per week</strong> to build page authority and amplify the reach of paid campaigns.</p>
+    </div>
+    <div class="goal-card content">
+      <div class="goal-pillar">Content · Channels</div>
+      <h4>Multi-Channel Integration</h4>
+      <p>Integrate <strong>email nurture with paid retargeting</strong> for a cohesive funnel — same prospect, consistent message, multiple touchpoints across channels.</p>
+    </div>
+    <div class="goal-card content">
+      <div class="goal-pillar">Content · Channels</div>
+      <h4>Seminars &amp; Event Planning</h4>
+      <p>Develop <strong>seminar follow-up drip campaigns</strong> for past attendees (critical hand-raisers) and promotional campaigns for new H2 seminars.</p>
+    </div>
+  </div>
+</section>
 <section class="section tight">
   <div class="takeaways">
     <div class="takeaways-head">
