@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Watch: The Retirement Planning Conversation Most Families Never Have — Luxon Brown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; color: #1a1f35; background: #fff; line-height: 1.6; }
+    :root {
+      --navy:   #1a1f35;
+      --navy2:  #222845;
+      --copper: #6CA823;
+      --ivory:  #f7f4ef;
+      --ivory2: #ede9e0;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .container-md { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* TOP BAR */
+    .topbar { background: var(--navy); padding: 8px 0; }
+    .topbar .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .topbar p { color: rgba(255,255,255,0.7); font-size: 11px; letter-spacing: 0.5px; }
+    .topbar a { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .topbar-book { color: #6CA823 !important; font-weight: 700 !important; }
+
+    /* HEADER */
+    .site-header { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--border); }
+    .site-header .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-text strong { display: block; font-family: 'DM Serif Display', Georgia, serif; font-size: 17px; color: var(--navy); line-height: 1.2; }
+    .logo-text span { display: block; font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; }
+    .btn-copper { display: inline-flex; align-items: center; gap: 6px; background: var(--copper); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.15s; }
+    .btn-copper:hover { opacity: 0.9; }
+    .btn-copper-lg { font-size: 16px; padding: 14px 36px; }
+
+    /* HERO — VSL variant: dark, centered, video-first */
+    .hero { background: var(--navy); padding: 64px 0 0; }
+    .hero-top { text-align: center; max-width: 800px; margin: 0 auto; padding-bottom: 48px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 14px; }
+    .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 42px; line-height: 1.15; color: #fff; margin-bottom: 18px; }
+    .hero-sub { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.72); margin-bottom: 28px; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 36px; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.65); }
+    .hero-meta-item svg { color: var(--copper); }
+
+    /* VIDEO PLAYER AREA */
+    .video-wrapper { background: #000; position: relative; }
+    .video-container { max-width: 900px; margin: 0 auto; position: relative; }
+    .video-player { width: 100%; aspect-ratio: 16/9; background: #0a0c14; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    /* Placeholder thumbnail overlay */
+    .video-thumbnail { position: absolute; inset: 0; background: linear-gradient(135deg, #1a1f35 0%, #0d1020 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: opacity 0.3s; }
+    .video-thumbnail.hidden { opacity: 0; pointer-events: none; }
+    .play-btn { width: 80px; height: 80px; border-radius: 50%; background: var(--copper); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 0 0 12px rgba(184,115,51,0.15); transition: transform 0.2s, box-shadow 0.2s; }
+    .play-btn:hover { transform: scale(1.08); box-shadow: 0 0 0 16px rgba(184,115,51,0.2); }
+    .play-btn svg { color: #fff; margin-left: 4px; }
+    .video-thumbnail h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; color: #fff; text-align: center; max-width: 500px; margin-bottom: 8px; }
+    .video-thumbnail p { font-size: 14px; color: rgba(255,255,255,0.55); text-align: center; }
+    /* Decorative elements on thumbnail */
+    .thumb-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(184,115,51,0.15); border: 1px solid rgba(184,115,51,0.3); color: var(--copper); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 24px; }
+    /* Simulated iframe for mockup */
+    .video-iframe-placeholder { width: 100%; height: 100%; background: #0a0c14; display: none; align-items: center; justify-content: center; }
+    .video-iframe-placeholder.active { display: flex; }
+    .video-iframe-placeholder p { color: rgba(255,255,255,0.4); font-size: 14px; text-align: center; }
+
+    /* VIDEO PROGRESS BAR (decorative) */
+    .video-bar { background: #000; padding: 12px 0; }
+    .video-bar .inner { max-width: 900px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; }
+    .progress-track { flex: 1; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; position: relative; cursor: pointer; }
+    .progress-fill { height: 100%; width: 0%; background: var(--copper); border-radius: 2px; transition: width 0.1s; }
+    .video-time { font-size: 12px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+    .vol-btn { color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; padding: 2px; }
+
+    /* CTA STRIP below video */
+    .cta-strip { background: var(--copper); padding: 20px 0; }
+    .cta-strip .inner { max-width: 900px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .cta-strip p { font-size: 16px; font-weight: 600; color: #fff; }
+    .cta-strip span { font-size: 13px; color: rgba(255,255,255,0.8); }
+    .btn-white { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: var(--copper); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; padding: 12px 28px; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.15s; white-space: nowrap; }
+    .btn-white:hover { opacity: 0.92; }
+
+    /* PROOF BAR */
+    .proof-bar { background: var(--ivory); border-bottom: 1px solid var(--ivory2); padding: 24px 0; }
+    .proof-bar .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 48px; text-align: center; }
+    .proof-stat strong { display: block; font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: var(--navy); }
+    .proof-stat span { font-size: 12px; color: var(--text-muted); }
+    .proof-divider { width: 1px; height: 36px; background: var(--border); }
+
+    /* KEY POINTS */
+    .key-points { padding: 88px 0; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 36px; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+    .section-intro { font-size: 16px; color: var(--text-muted); max-width: 560px; margin: 0 auto 56px; }
+    .points-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .point-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px; text-align: center; }
+    .point-number { font-family: 'DM Serif Display', Georgia, serif; font-size: 48px; color: var(--copper); opacity: 0.6; line-height: 1; margin-bottom: 12px; }
+    .point-card h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 18px; color: var(--navy); margin-bottom: 10px; }
+    .point-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ABOUT SECTION */
+    .about { background: var(--ivory); padding: 88px 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 900px; margin: 0 auto; }
+    .about-img { background: var(--navy); border-radius: 16px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .about-img-placeholder { text-align: center; }
+    .about-img-placeholder svg { color: rgba(255,255,255,0.2); margin-bottom: 12px; }
+    .about-img-placeholder p { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .about-content .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
+    .about-content h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 32px; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+    .about-content p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+    .about-stats { display: flex; gap: 32px; margin-top: 24px; }
+    .about-stat strong { display: block; font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: var(--navy); }
+    .about-stat span { font-size: 12px; color: var(--text-muted); }
+
+    /* TESTIMONIALS */
+    .testimonials { padding: 88px 0; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .tcard { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .stars { color: var(--copper); font-size: 14px; margin-bottom: 14px; }
+    .tcard blockquote { font-size: 14px; color: rgba(0,0,0,0.7); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .tcard cite { font-size: 13px; font-weight: 600; color: var(--navy); display: block; font-style: normal; }
+    .tcard cite span { font-size: 11px; color: var(--text-muted); font-weight: 400; display: block; margin-top: 2px; }
+
+    /* LEAD FORM */
+    .lead-form-section { background: var(--navy); padding: 88px 0; }
+    .form-header { text-align: center; margin-bottom: 36px; }
+    .form-header .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
+    .form-header h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 36px; color: #fff; margin-bottom: 14px; }
+    .form-header p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto; }
+    .form-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.7); }
+    .form-field label .req { color: var(--copper); }
+    .form-field label .opt { color: rgba(255,255,255,0.4); font-weight: 400; }
+    .form-field input, .form-field select { width: 100%; height: 44px; padding: 0 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.15s; }
+    .form-field input::placeholder { color: rgba(255,255,255,0.35); }
+    .form-field input:focus, .form-field select:focus { border-color: var(--copper); }
+    .form-field select option { background: var(--navy2); color: #fff; }
+    .opt-ins { margin: 16px 0 24px; display: flex; flex-direction: column; gap: 12px; }
+    .opt-in { display: flex; align-items: flex-start; gap: 10px; }
+    .opt-in input[type="checkbox"] { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--copper); flex-shrink: 0; }
+    .opt-in span { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .form-submit { width: 100%; height: 52px; font-size: 16px; justify-content: center; }
+    .form-privacy { text-align: center; font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 14px; }
+    .form-success { text-align: center; padding: 48px 0; display: none; }
+    .success-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--copper); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+    .form-success h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 32px; color: #fff; margin-bottom: 14px; }
+    .form-success p { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 440px; margin: 0 auto 12px; }
+
+    /* FOOTER */
+    .site-footer { background: #141829; padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-top: 12px; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a, .footer-col span { font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-col svg { color: var(--copper); flex-shrink: 0; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
+    .footer-legal { font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.8; }
+    .footer-legal p { margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 28px; }
+      .points-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .form-fields { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .proof-divider { display: none; }
+      .cta-strip .inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="inner">
+    <p>Independent, Fiduciary Advice — Always in Your Best Interest</p>
+    <div class="topbar-right">
+      <a href="tel:5551234567">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        (555) 123-4567
+      </a>
+      <a href="https://luxonbrown.com/book" target="_blank" class="topbar-book">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY HEADER -->
+<div class="site-header">
+  <div class="inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 24C17.16 22.74 21 17.55 21 12V7L12 2Z" fill="#6CA823" opacity="0.9"/>
+          <path d="M10 16L6 12L7.41 10.59L10 13.17L16.59 6.58L18 8L10 16Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <strong>Luxon Brown</strong>
+        <span>Financial Advisory</span>
+      </div>
+    </a>
+    <button class="btn-copper" onclick="smoothScroll('lead-form')">Schedule a Free Call</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <p class="hero-eyebrow">Free Presentation — Watch Now</p>
+      <h1>The Retirement Planning Conversation Most Families Never Have</h1>
+      <p class="hero-sub">In this short presentation, our advisors walk through the five decisions that most directly determine whether your retirement is comfortable, secure, and on your terms — or not.</p>
+      <div class="hero-meta">
+        <span class="hero-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Approx. 18 minutes
+        </span>
+        <span class="hero-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No sales pitch — educational only
+        </span>
+        <span class="hero-meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          Presented by Luxon Brown advisors
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO PLAYER -->
+  <div class="video-wrapper">
+    <div class="video-container">
+      <div class="video-player" id="video-player">
+        <!-- Thumbnail / Play overlay -->
+        <div class="video-thumbnail" id="video-thumbnail" onclick="playVideo()">
+          <span class="thumb-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Watch Free Presentation
+          </span>
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <h3>The Retirement Planning Conversation Most Families Never Have</h3>
+          <p>Click to watch &mdash; approx. 18 minutes</p>
+        </div>
+        <!-- Simulated video placeholder (replace with actual embed) -->
+        <div class="video-iframe-placeholder" id="video-iframe">
+          <div style="text-align:center;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <p style="margin-top:16px; font-size:14px; color:rgba(255,255,255,0.4);">Replace this area with your video embed code<br>(YouTube, Vimeo, Wistia, etc.)</p>
+            <code style="display:block; margin-top:12px; font-size:11px; color:rgba(255,255,255,0.25); font-family:monospace;">&lt;iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" ...&gt;&lt;/iframe&gt;</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO PROGRESS BAR (decorative) -->
+  <div class="video-bar">
+    <div class="inner">
+      <button class="vol-btn" title="Volume">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg>
+      </button>
+      <div class="progress-track" onclick="scrubVideo(event, this)">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <span class="video-time" id="video-time">0:00 / 18:24</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="inner">
+    <div>
+      <p>Ready to take the next step?</p>
+      <span>Schedule a free, no-obligation conversation with one of our advisors.</span>
+    </div>
+    <a href="#lead-form" class="btn-white" onclick="smoothScroll('lead-form'); return false;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule a Free Call
+    </a>
+  </div>
+</div>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="inner container">
+    <div class="proof-stat"><strong>500+</strong><span>Families Served</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat"><strong>25+</strong><span>Years of Experience</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat"><strong>100%</strong><span>Fiduciary Standard</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat"><strong>Free</strong><span>No Obligation Consultation</span></div>
+  </div>
+</div>
+
+<!-- KEY POINTS -->
+<section class="key-points" id="key-points">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 56px;">
+      <p class="section-eyebrow">What You'll Learn</p>
+      <h2 class="section-title">Five Decisions That Shape Your Retirement</h2>
+      <p class="section-intro">This presentation covers the planning decisions that have the greatest impact on your financial security — and the mistakes most families make before it's too late to correct them.</p>
+    </div>
+    <div class="points-grid">
+      <div class="point-card">
+        <div class="point-number">01</div>
+        <h3>When to Claim Social Security</h3>
+        <p>The timing of your Social Security claim can mean a difference of $100,000 or more over your lifetime. We'll show you how to think through this decision the right way.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-number">02</div>
+        <h3>How to Create Reliable Income</h3>
+        <p>Turning a retirement account into a paycheck requires a strategy. We'll walk through the approaches that help ensure your money lasts as long as you do.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-number">03</div>
+        <h3>Managing Taxes in Retirement</h3>
+        <p>Many retirees are surprised by how much they owe in taxes. We'll explain how the right withdrawal strategy can significantly reduce your tax burden over time.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-number">04</div>
+        <h3>Planning for Healthcare Costs</h3>
+        <p>Healthcare is one of the largest — and most unpredictable — expenses in retirement. We'll cover what you need to know about Medicare, long-term care, and coverage gaps.</p>
+      </div>
+      <div class="point-card">
+        <div class="point-number">05</div>
+        <h3>Protecting Your Legacy</h3>
+        <p>Your estate plan determines what happens to everything you've built. We'll cover the key documents every family needs and the common mistakes that leave loved ones unprotected.</p>
+      </div>
+      <div class="point-card" style="background:var(--ivory); border-color:var(--ivory2); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:16px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:var(--copper); display:flex; align-items:center; justify-content:center; margin:0 auto;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 style="font-family:'DM Serif Display',Georgia,serif; font-size:18px; color:var(--navy);">Ready to Talk?</h3>
+        <p style="font-size:14px; color:var(--text-muted);">Schedule a free, no-obligation call with one of our advisors to discuss your specific situation.</p>
+        <button class="btn-copper" onclick="smoothScroll('lead-form')">Schedule a Free Call</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="about-img-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <p>Advisor team photo</p>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="eyebrow">About Luxon Brown</p>
+        <h2>Independent Advisors. Fiduciary Standard. Your Best Interest — Always.</h2>
+        <p>Luxon Brown Financial Advisory is an independent, fee-based firm serving families and business owners across Arkansas. We are fiduciaries — meaning we are legally and ethically obligated to act in your best interest at all times.</p>
+        <p>We don't work for an insurance company or a brokerage. We work for you. That independence allows us to provide objective guidance across every area of your financial life — from retirement income planning to estate documents to tax strategy.</p>
+        <div class="about-stats">
+          <div class="about-stat"><strong>500+</strong><span>Families Served</span></div>
+          <div class="about-stat"><strong>25+</strong><span>Years of Experience</span></div>
+          <div class="about-stat"><strong>100%</strong><span>Fiduciary</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 48px;">
+      <p class="section-eyebrow">Client Stories</p>
+      <h2 class="section-title">Trusted by Families Across Arkansas</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Watching the presentation was the first time everything clicked for me. I finally understood why my previous advisor's recommendations never quite made sense. Luxon Brown is completely different."</blockquote>
+        <cite>Patricia M. <span>Pre-retiree, Little Rock AR</span></cite>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I watched the video on a Sunday afternoon and called Monday morning. Within one meeting, I had a clear picture of what my retirement actually looks like. That peace of mind is worth everything."</blockquote>
+        <cite>Gerald &amp; Susan T. <span>Retired couple, Bentonville AR</span></cite>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The Social Security section alone was worth 18 minutes of my time. I had no idea how much the timing decision mattered. We changed our plan and it will make a real difference."</blockquote>
+        <cite>Raymond H. <span>Business owner, Fayetteville AR</span></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="lead-form-section" id="lead-form">
+  <div class="container-sm">
+    <div id="form-container">
+      <div class="form-header">
+        <p class="eyebrow">Free — No Obligation</p>
+        <h2>Schedule a Complimentary Conversation</h2>
+        <p>Complete the form below and one of our advisors will reach out to schedule a free, no-obligation call at a time that works for you.</p>
+      </div>
+      <form id="vsl-form" onsubmit="handleFormSubmit(event)">
+        <input type="hidden" name="page_type" value="vsl">
+        <div class="form-fields">
+          <div class="form-field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="first_name" placeholder="John" required>
+          </div>
+          <div class="form-field">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" name="last_name" placeholder="Smith" required>
+          </div>
+          <div class="form-field full">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-field full">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="(555) 123-4567" required>
+          </div>
+          <div class="form-field full">
+            <label>Best Time to Reach You <span class="opt">(optional)</span></label>
+            <select name="best_time">
+              <option value="" disabled selected>Select a preference</option>
+              <option value="morning">Morning (8am – 12pm)</option>
+              <option value="afternoon">Afternoon (12pm – 5pm)</option>
+              <option value="evening">Evening (5pm – 7pm)</option>
+              <option value="anytime">Anytime</option>
+            </select>
+          </div>
+        </div>
+        <div class="opt-ins">
+          <label class="opt-in">
+            <input type="checkbox" name="opt_in_email" checked>
+            <span>Yes, I would like to receive educational financial planning content and updates via email. You may unsubscribe at any time.</span>
+          </label>
+          <label class="opt-in">
+            <input type="checkbox" name="opt_in_sms">
+            <span>Yes, I consent to receive occasional text messages. Message and data rates may apply. Reply STOP to opt out.</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-copper form-submit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Request My Free Consultation
+        </button>
+        <p class="form-privacy">Your information is secure and will never be shared with third parties. By submitting this form, you agree to our Privacy Policy.</p>
+      </form>
+    </div>
+    <!-- Success -->
+    <div class="form-success" id="form-success">
+      <div class="success-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>You're All Set</h2>
+      <p>One of our advisors will be in touch shortly to schedule your complimentary consultation.</p>
+      <p>In the meantime, feel free to call us directly at <strong style="color:#fff;">(555) 123-4567</strong>.</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); margin-top:20px;">Submitting this form does not create a client-advisor relationship.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:#6CA823; display:flex; align-items:center; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 24C17.16 22.74 21 17.55 21 12V7L12 2Z" fill="white" opacity="0.9"/><path d="M10 16L6 12L7.41 10.59L10 13.17L16.59 6.58L18 8L10 16Z" fill="#6CA823"/></svg>
+          </div>
+          <span style="font-family:'DM Serif Display',Georgia,serif; font-size:17px; font-weight:bold; color:#fff;">Luxon Brown</span>
+        </div>
+        <p>Independent, fiduciary financial advisors dedicated to protecting what matters most to you and your family.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><span>Financial Planning</span></li>
+          <li><span>Retirement Planning</span></li>
+          <li><span>Estate Planning</span></li>
+          <li><span>Tax Strategies</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><span>Our Team</span></li>
+          <li><span>Our Approach</span></li>
+          <li><span>Client Stories</span></li>
+          <li><span>Privacy Policy</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="tel:5551234567"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>(555) 123-4567</a></li>
+          <li><a href="mailto:info@luxonbrown.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@luxonbrown.com</a></li>
+          <li><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>123 Main Street, Suite 200<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Little Rock, AR 72201</span></li>
+          <li style="margin-top:12px;"><a href="https://luxonbrown.com/book" target="_blank" style="display:inline-flex; align-items:center; gap:7px; background:#6CA823; color:#fff; font-size:12px; font-weight:700; padding:9px 18px; border-radius:6px; text-decoration:none;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-legal">
+      <p>&copy; 2026 Luxon Brown Financial Advisory. All rights reserved. Luxon Brown Financial Advisory is a registered investment advisor.</p>
+      <p>The information provided in this presentation and on this website is for educational purposes only and does not constitute investment advice, a recommendation, or an offer to buy or sell any securities. Past performance is not indicative of future results. All investing involves risk, including the possible loss of principal. Please consult with a qualified financial advisor before making any financial decisions. Not all strategies are appropriate for all investors.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function smoothScroll(id) {
+    event && event.preventDefault && event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function playVideo() {
+    document.getElementById('video-thumbnail').classList.add('hidden');
+    document.getElementById('video-iframe').classList.add('active');
+    startProgress();
+  }
+
+  // Decorative progress simulation
+  let progressInterval;
+  let currentSeconds = 0;
+  const totalSeconds = 1104; // 18:24
+  function startProgress() {
+    progressInterval = setInterval(() => {
+      currentSeconds += 1;
+      if (currentSeconds >= totalSeconds) { clearInterval(progressInterval); return; }
+      const pct = (currentSeconds / totalSeconds) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      const m = Math.floor(currentSeconds / 60);
+      const s = currentSeconds % 60;
+      const tm = Math.floor(totalSeconds / 60);
+      const ts = totalSeconds % 60;
+      document.getElementById('video-time').textContent = `${m}:${s.toString().padStart(2,'0')} / ${tm}:${ts.toString().padStart(2,'0')}`;
+    }, 1000);
+  }
+
+  function scrubVideo(e, track) {
+    const rect = track.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    currentSeconds = Math.floor(pct * totalSeconds);
+    document.getElementById('progress-fill').style.width = (pct * 100) + '%';
+  }
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-container').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('lead-form').offsetTop - 80, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

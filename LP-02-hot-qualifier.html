@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Is Your Financial Plan Keeping Up With Your Life? — Luxon Brown</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; color: #1a1f35; background: #fff; line-height: 1.6; }
+    :root {
+      --navy:   #1a1f35;
+      --navy2:  #222845;
+      --copper: #6CA823;
+      --ivory:  #f7f4ef;
+      --ivory2: #ede9e0;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* TOP BAR */
+    .topbar { background: var(--navy); padding: 8px 0; }
+    .topbar .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .topbar p { color: rgba(255,255,255,0.7); font-size: 11px; letter-spacing: 0.5px; }
+    .topbar a { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .topbar-book { color: #6CA823 !important; font-weight: 700 !important; }
+
+    /* HEADER */
+    .site-header { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--border); }
+    .site-header .inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .logo-text strong { display: block; font-family: 'DM Serif Display', Georgia, serif; font-size: 17px; color: var(--navy); line-height: 1.2; }
+    .logo-text span { display: block; font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; }
+    .btn-copper { display: inline-flex; align-items: center; gap: 6px; background: var(--copper); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.15s; }
+    .btn-copper:hover { opacity: 0.9; }
+    .btn-copper-lg { font-size: 16px; padding: 14px 36px; }
+
+    /* HERO — Qualifier variant: centered, no card, urgency-focused */
+    .hero { background: var(--navy); padding: 80px 0; }
+    .hero-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 16px; }
+    .hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 46px; line-height: 1.15; color: #fff; margin-bottom: 20px; }
+    .hero-sub { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.75); margin-bottom: 36px; }
+    .life-events { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 36px; }
+    .event-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.12); }
+    .event-pill svg { color: var(--copper); }
+    .trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 36px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); font-size: 11px; font-weight: 500; padding: 6px 12px; border-radius: 20px; }
+
+    /* PROOF BAR */
+    .proof-bar { background: var(--ivory); border-bottom: 1px solid var(--ivory2); padding: 24px 0; }
+    .proof-bar .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 48px; text-align: center; }
+    .proof-stat strong { display: block; font-family: 'DM Serif Display', Georgia, serif; font-size: 28px; color: var(--navy); }
+    .proof-stat span { font-size: 12px; color: var(--text-muted); }
+    .proof-divider { width: 1px; height: 36px; background: var(--border); }
+
+    /* WHY IT MATTERS */
+    .why { padding: 88px 0; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 36px; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+    .section-intro { font-size: 16px; color: var(--text-muted); max-width: 560px; margin: 0 auto 56px; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+    .why-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: box-shadow 0.2s; }
+    .why-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .why-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--ivory); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .why-icon svg { color: var(--copper); }
+    .why-card h3 { font-family: 'DM Serif Display', Georgia, serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+    .why-card p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: var(--ivory); padding: 88px 0; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .tcard { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .stars { color: var(--copper); font-size: 14px; margin-bottom: 14px; }
+    .tcard blockquote { font-size: 14px; color: rgba(0,0,0,0.7); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .tcard cite { font-size: 13px; font-weight: 600; color: var(--navy); display: block; font-style: normal; }
+    .tcard cite span { font-size: 11px; color: var(--text-muted); font-weight: 400; display: block; margin-top: 2px; }
+
+    /* QUALIFIER FORM — the key differentiator */
+    .qualifier-section { background: var(--navy); padding: 88px 0; }
+    .form-header { text-align: center; margin-bottom: 36px; }
+    .form-header .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
+    .form-header h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 36px; color: #fff; margin-bottom: 14px; }
+    .form-header p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; }
+    .form-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; }
+    .form-section-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); margin-bottom: 16px; margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .form-section-label:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .form-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 4px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.7); }
+    .form-field label .req { color: var(--copper); }
+    .form-field label .opt { color: rgba(255,255,255,0.4); font-weight: 400; }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 11px 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.15s; }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--copper); }
+    .form-field select option { background: var(--navy2); color: #fff; }
+    .form-field textarea { resize: vertical; min-height: 80px; }
+    /* Checkbox group */
+    .checkbox-group { display: flex; flex-direction: column; gap: 10px; }
+    .checkbox-item { display: flex; align-items: center; gap: 10px; }
+    .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--copper); flex-shrink: 0; }
+    .checkbox-item label { font-size: 13px; color: rgba(255,255,255,0.75); cursor: pointer; }
+    /* Radio group */
+    .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
+    .radio-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 16px; cursor: pointer; transition: border-color 0.15s; }
+    .radio-item:hover { border-color: var(--copper); }
+    .radio-item input[type="radio"] { accent-color: var(--copper); }
+    .radio-item label { font-size: 13px; color: rgba(255,255,255,0.8); cursor: pointer; }
+    /* Opt-ins */
+    .opt-ins { margin: 20px 0 28px; display: flex; flex-direction: column; gap: 12px; }
+    .opt-in { display: flex; align-items: flex-start; gap: 10px; }
+    .opt-in input[type="checkbox"] { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--copper); flex-shrink: 0; }
+    .opt-in span { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .form-submit { width: 100%; height: 52px; font-size: 16px; justify-content: center; }
+    .form-privacy { text-align: center; font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 14px; }
+    /* Success */
+    .form-success { text-align: center; padding: 48px 0; display: none; }
+    .success-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--copper); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+    .form-success h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 32px; color: #fff; margin-bottom: 14px; }
+    .form-success p { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 12px; }
+
+    /* FOOTER */
+    .site-footer { background: #141829; padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-top: 12px; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a, .footer-col span { font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-col svg { color: var(--copper); flex-shrink: 0; }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
+    .footer-legal { font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.8; }
+    .footer-legal p { margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .form-fields { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .proof-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="inner">
+    <p>Independent, Fiduciary Advice — Always in Your Best Interest</p>
+    <div class="topbar-right">
+      <a href="tel:5551234567">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        (555) 123-4567
+      </a>
+      <a href="https://luxonbrown.com/book" target="_blank" class="topbar-book">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STICKY HEADER -->
+<div class="site-header">
+  <div class="inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 24C17.16 22.74 21 17.55 21 12V7L12 2Z" fill="#6CA823" opacity="0.9"/>
+          <path d="M10 16L6 12L7.41 10.59L10 13.17L16.59 6.58L18 8L10 16Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <strong>Luxon Brown</strong>
+        <span>Financial Advisory</span>
+      </div>
+    </a>
+    <button class="btn-copper" onclick="smoothScroll('qualifier-form')">Tell Us About Your Situation</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Life Changes. Your Plan Should Too.</p>
+    <h1>Is Your Financial Plan Keeping Up With Your Life?</h1>
+    <p class="hero-sub">Major life events — retirement, marriage, divorce, inheritance, or a new business — can dramatically change what your financial plan needs to do. Take two minutes to share where you are, and we'll reach out to help you think it through.</p>
+    <div class="life-events">
+      <span class="event-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Getting Married
+      </span>
+      <span class="event-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Approaching Retirement
+      </span>
+      <span class="event-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Recently Retired
+      </span>
+      <span class="event-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Received an Inheritance
+      </span>
+      <span class="event-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        Sold a Business
+      </span>
+      <span class="event-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Lost a Spouse
+      </span>
+    </div>
+    <div class="trust-badges">
+      <span class="badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Independent &amp; Fiduciary
+      </span>
+      <span class="badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        No Obligation
+      </span>
+      <span class="badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Confidential
+      </span>
+    </div>
+    <button class="btn-copper btn-copper-lg" onclick="smoothScroll('qualifier-form')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Share Your Situation
+    </button>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="inner container">
+    <div class="proof-stat"><strong>500+</strong><span>Families Served</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat"><strong>25+</strong><span>Years of Experience</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat"><strong>100%</strong><span>Fiduciary Standard</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-stat"><strong>Free</strong><span>No Obligation Conversation</span></div>
+  </div>
+</div>
+
+<!-- WHY IT MATTERS -->
+<section class="why" id="why">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 56px;">
+      <p class="section-eyebrow">Why Timing Matters</p>
+      <h2 class="section-title">Life Events That Demand a Financial Review</h2>
+      <p class="section-intro">Each of these milestones can fundamentally change your tax situation, insurance needs, investment strategy, and estate plan. The sooner you review, the more options you have.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Marriage or Divorce</h3>
+        <p>Combining finances — or separating them — affects your beneficiary designations, tax filing status, insurance coverage, Social Security strategy, and estate plan. These need to be updated immediately.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Approaching or Entering Retirement</h3>
+        <p>The five years before and after retirement are the most consequential in your financial life. Decisions made now — about Social Security, withdrawals, and healthcare — can have a lasting impact on your income.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Inheritance or Windfall</h3>
+        <p>Receiving a significant sum of money — whether from an estate, a business sale, or a settlement — requires a thoughtful plan. Without one, taxes and poor decisions can erode a significant portion of it quickly.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Loss of a Spouse or Partner</h3>
+        <p>Losing a spouse triggers a cascade of financial decisions — survivor benefits, account retitling, tax filing changes, and insurance reviews — often at the worst possible time. We can help you navigate this with care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 48px;">
+      <p class="section-eyebrow">Client Stories</p>
+      <h2 class="section-title">Families Who Reached Out at the Right Time</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"After my husband passed, I had no idea where to start. The team at Luxon Brown walked me through every step — from account transfers to updating my estate plan — with patience and genuine care."</blockquote>
+        <cite>Margaret W. <span>Widow, Little Rock AR</span></cite>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"We got married and realized our finances were a complete mess — separate accounts, different beneficiaries, no shared plan. Luxon Brown helped us build a unified strategy that finally made sense."</blockquote>
+        <cite>James &amp; Priya K. <span>Newlyweds, Fayetteville AR</span></cite>
+      </div>
+      <div class="tcard">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I sold my business and suddenly had more money than I'd ever managed. I was overwhelmed. Within one meeting, I had a clear picture of what to do and what not to do. That clarity was priceless."</blockquote>
+        <cite>Thomas R. <span>Business owner, Bentonville AR</span></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALIFIER FORM -->
+<section class="qualifier-section" id="qualifier-form">
+  <div class="container-sm">
+    <div id="form-container">
+      <div class="form-header">
+        <p class="eyebrow">Confidential — No Obligation</p>
+        <h2>Tell Us About Your Situation</h2>
+        <p>Share a few details about where you are in life and what's changed. One of our advisors will reach out personally to start the conversation — no pressure, no sales pitch.</p>
+      </div>
+      <div class="form-card">
+        <form id="qualifier-form-el" onsubmit="handleFormSubmit(event)">
+          <input type="hidden" name="page_type" value="hot-qualifier">
+
+          <!-- SECTION: Contact Info -->
+          <p class="form-section-label">Your Contact Information</p>
+          <div class="form-fields">
+            <div class="form-field">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" name="first_name" placeholder="John" required>
+            </div>
+            <div class="form-field">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" name="last_name" placeholder="Smith" required>
+            </div>
+            <div class="form-field full">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <div class="form-field full">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" name="phone" placeholder="(555) 123-4567" required>
+            </div>
+          </div>
+
+          <!-- SECTION: Life Events -->
+          <p class="form-section-label">What Has Changed in Your Life?</p>
+          <p style="font-size:13px; color:rgba(255,255,255,0.6); margin-bottom:14px;">Select all that apply:</p>
+          <div class="checkbox-group" style="margin-bottom:4px;">
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-marriage" name="life_event[]" value="marriage">
+              <label for="ev-marriage">Getting married or recently married</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-divorce" name="life_event[]" value="divorce">
+              <label for="ev-divorce">Going through or recently completed a divorce</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-retirement-near" name="life_event[]" value="retirement_near">
+              <label for="ev-retirement-near">Approaching retirement (within 5 years)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-retired" name="life_event[]" value="retired">
+              <label for="ev-retired">Recently retired</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-inheritance" name="life_event[]" value="inheritance">
+              <label for="ev-inheritance">Received an inheritance or financial windfall</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-business" name="life_event[]" value="business_sale">
+              <label for="ev-business">Sold or planning to sell a business</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-loss" name="life_event[]" value="loss_of_spouse">
+              <label for="ev-loss">Lost a spouse or partner</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-other" name="life_event[]" value="other">
+              <label for="ev-other">Other significant life change</label>
+            </div>
+          </div>
+
+          <!-- SECTION: Financial Snapshot -->
+          <p class="form-section-label">A Quick Financial Snapshot</p>
+          <div class="form-fields">
+            <div class="form-field full">
+              <label>Approximate Age Range <span class="req">*</span></label>
+              <select name="age_range" required>
+                <option value="" disabled selected>Select your age range</option>
+                <option value="under_45">Under 45</option>
+                <option value="45_54">45 – 54</option>
+                <option value="55_64">55 – 64</option>
+                <option value="65_74">65 – 74</option>
+                <option value="75_plus">75 or older</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label>Investable Assets (approximate) <span class="opt">(optional — helps us prepare)</span></label>
+              <select name="asset_range">
+                <option value="" disabled selected>Select a range</option>
+                <option value="under_100k">Under $100,000</option>
+                <option value="100k_250k">$100,000 – $250,000</option>
+                <option value="250k_500k">$250,000 – $500,000</option>
+                <option value="500k_1m">$500,000 – $1,000,000</option>
+                <option value="1m_plus">Over $1,000,000</option>
+                <option value="prefer_not">Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- SECTION: Current Situation -->
+          <p class="form-section-label">Do You Currently Work With a Financial Advisor?</p>
+          <div class="radio-group" style="margin-bottom:4px;">
+            <div class="radio-item">
+              <input type="radio" id="adv-yes" name="has_advisor" value="yes">
+              <label for="adv-yes">Yes, I have an advisor</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="adv-no" name="has_advisor" value="no">
+              <label for="adv-no">No, I don't currently</label>
+            </div>
+            <div class="radio-item">
+              <input type="radio" id="adv-looking" name="has_advisor" value="looking">
+              <label for="adv-looking">Looking to make a change</label>
+            </div>
+          </div>
+
+          <!-- SECTION: Anything Else -->
+          <p class="form-section-label">Anything Else You'd Like Us to Know?</p>
+          <div class="form-fields">
+            <div class="form-field full">
+              <label>Your Message <span class="opt">(optional)</span></label>
+              <textarea name="message" placeholder="Share any context that would help us prepare for our conversation..."></textarea>
+            </div>
+          </div>
+
+          <!-- Opt-ins -->
+          <div class="opt-ins">
+            <label class="opt-in">
+              <input type="checkbox" name="opt_in_email" checked>
+              <span>Yes, I would like to receive educational financial planning content and updates via email. You may unsubscribe at any time.</span>
+            </label>
+            <label class="opt-in">
+              <input type="checkbox" name="opt_in_sms">
+              <span>Yes, I consent to receive occasional text messages. Message and data rates may apply. Reply STOP to opt out.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-copper form-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Submit My Information
+          </button>
+          <p class="form-privacy">Your information is confidential and will never be shared with third parties. By submitting this form, you agree to our Privacy Policy.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success State -->
+    <div class="form-success" id="form-success">
+      <div class="success-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Thank You — We'll Be in Touch</h2>
+      <p>One of our advisors will review your information and reach out personally within one business day to start the conversation.</p>
+      <p>In the meantime, feel free to call us directly at <strong style="color:#fff;">(555) 123-4567</strong> or email <strong style="color:#fff;">info@luxonbrown.com</strong>.</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); margin-top:20px;">This is an educational and informational inquiry only. Submitting this form does not create an advisory relationship.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div style="width:32px; height:32px; border-radius:8px; background:#6CA823; display:flex; align-items:center; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 24C17.16 22.74 21 17.55 21 12V7L12 2Z" fill="white" opacity="0.9"/><path d="M10 16L6 12L7.41 10.59L10 13.17L16.59 6.58L18 8L10 16Z" fill="#6CA823"/></svg>
+          </div>
+          <span style="font-family:'DM Serif Display',Georgia,serif; font-size:17px; font-weight:bold; color:#fff;">Luxon Brown</span>
+        </div>
+        <p>Independent, fiduciary financial advisors dedicated to protecting what matters most to you and your family.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><span>Financial Planning</span></li>
+          <li><span>Retirement Planning</span></li>
+          <li><span>Estate Planning</span></li>
+          <li><span>Tax Strategies</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><span>Our Team</span></li>
+          <li><span>Our Approach</span></li>
+          <li><span>Client Stories</span></li>
+          <li><span>Privacy Policy</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="tel:5551234567"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>(555) 123-4567</a></li>
+          <li><a href="mailto:info@luxonbrown.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@luxonbrown.com</a></li>
+          <li><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>123 Main Street, Suite 200<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Little Rock, AR 72201</span></li>
+          <li style="margin-top:12px;"><a href="https://luxonbrown.com/book" target="_blank" style="display:inline-flex; align-items:center; gap:7px; background:#6CA823; color:#fff; font-size:12px; font-weight:700; padding:9px 18px; border-radius:6px; text-decoration:none;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Appointment</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-legal">
+      <p>&copy; 2026 Luxon Brown Financial Advisory. All rights reserved. Luxon Brown Financial Advisory is a registered investment advisor.</p>
+      <p>The information provided on this website is for educational purposes only and does not constitute investment advice, a recommendation, or an offer to buy or sell any securities. Submitting this form does not create a client-advisor relationship. Past performance is not indicative of future results. Please consult with a qualified financial advisor before making any financial decisions.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function smoothScroll(id) {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-container').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('qualifier-form').offsetTop - 80, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
